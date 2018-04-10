@@ -3,7 +3,7 @@ package com.syqu.shop.controller;
 import com.syqu.shop.service.SecurityService;
 import com.syqu.shop.user.User;
 import com.syqu.shop.user.UserService;
-import com.syqu.shop.util.UserValidator;
+import com.syqu.shop.user.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
