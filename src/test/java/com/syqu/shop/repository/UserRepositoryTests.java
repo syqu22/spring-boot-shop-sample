@@ -56,4 +56,21 @@ public class UserRepositoryTests {
         User found = userRepository.findByEmail(testObject.getEmail());
         assertThat(found.getEmail()).isEqualTo(testObject.getEmail());
     }
+
+    @Test
+    public void whenFindByIdThenReturnUser(){
+        User testObject = new User();
+        testObject.setUsername("Bob");
+        testObject.setPassword("longpassword123");
+        testObject.setPasswordConfirm("longpassword123");
+        testObject.setAge(new Random(100).nextInt());
+        testObject.setEmail("randomemail@gmail.ru");
+        testObject.setGender("Male");
+
+        entityManager.persist(testObject);
+        entityManager.flush();
+
+        User found = userRepository.findById(testObject.getId());
+        assertThat(found.getId()).isEqualTo(testObject.getId());
+    }
 }
