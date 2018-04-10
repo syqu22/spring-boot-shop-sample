@@ -1,4 +1,4 @@
-package com.syqu.shop.util;
+package com.syqu.shop.user;
 
 import com.syqu.shop.user.User;
 import com.syqu.shop.user.UserService;
