@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+    <div class="starter-template">
+        <h1 th:text="'Error: ' + ${#response.getStatus()}"></h1>
+        <h3>Sorry, you can't access this page.</h3>
+        <a href="/home">Back to home page</a>
+    </div>
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
