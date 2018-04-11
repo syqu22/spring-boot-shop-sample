@@ -1,10 +1,8 @@
 language: java
-language: javjdk:
+jdk:
 - oraclejdk8
+before_install:
+  - chmod +x mvnw
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
