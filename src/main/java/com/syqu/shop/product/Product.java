@@ -1,15 +1,20 @@
 package com.syqu.shop.product;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) @NotNull private long id;
-    @Column(name = "name") @NotNull private String name;
-    @Column(name = "description",length = 2000) @NotNull private String description;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
+    @Column(name = "name") @NotNull @NotEmpty private String name;
+    @Column(name = "description",length = 2000) @NotNull @NotEmpty private String description;
+    @Column(name = "image") @URL private String image_url;
     @Column(name = "price") @NotNull private double price ;
+
 
     public long getId() {
         return id;
@@ -33,6 +38,14 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return image_url;
+    }
+
+    public void setImageUrl(String image_url) {
+        this.image_url = image_url;
     }
 
     public double getPrice() {

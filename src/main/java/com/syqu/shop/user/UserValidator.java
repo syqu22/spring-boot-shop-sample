@@ -1,7 +1,5 @@
 package com.syqu.shop.user;
 
-import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

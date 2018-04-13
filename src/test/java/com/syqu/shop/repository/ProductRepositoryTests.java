@@ -21,15 +21,37 @@ public class ProductRepositoryTests {
     private TestEntityManager entityManager;
 
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
+
+    private Product createTestObject(){
+        Product testObject = new Product();
+
+        testObject.setName("testName");
+        testObject.setDescription("testDescriptionTestDescription");
+        testObject.setPrice(new Random(1000).nextDouble());
+        testObject.setImageUrl("https://avatars1.githubusercontent.com/u/30699233?s=400&u=cf0bc2b388b5c72364aaaedf26a8aab63f97ffcc&v=4");
+
+        return testObject;
+    }
+
+    @Test
+    public void checkIfParamsAreTheSame(){
+        Product testObject = createTestObject();
+        entityManager.persist(testObject);
+        entityManager.flush();
+
+        Product found = productRepository.findByName(testObject.getName());
+
+        assertThat(found.getId()).isEqualTo(testObject.getId());
+        assertThat(found.getName()).isEqualTo(testObject.getName());
+        assertThat(found.getDescription()).isEqualTo(testObject.getDescription());
+        assertThat(found.getPrice()).isEqualTo(testObject.getPrice());
+        assertThat(found.getImageUrl()).isEqualTo(testObject.getImageUrl());
+    }
 
     @Test
     public void whenFindByNameThenReturnProduct() {
-        Product testObject = new Product();
-        testObject.setName("testName");
-        testObject.setDescription("testDescriptionTestDescription");
-        testObject.setPrice(new Random().nextDouble());
-
+        Product testObject = createTestObject();
         entityManager.persist(testObject);
         entityManager.flush();
 
@@ -39,11 +61,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void whenFindByIdThenReturnProduct(){
-        Product testObject = new Product();
-        testObject.setName("nameTest");
-        testObject.setDescription("descriptionTestDescriptionTest");
-        testObject.setPrice(new Random().nextDouble());
-
+        Product testObject = createTestObject();
         entityManager.persist(testObject);
         entityManager.flush();
 

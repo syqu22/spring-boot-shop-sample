@@ -2,14 +2,11 @@ package com.syqu.shop.repository;
 
 import com.syqu.shop.user.User;
 import com.syqu.shop.user.UserRepository;
-import com.syqu.shop.user.UserService;
-import com.syqu.shop.user.UserValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Random;
@@ -24,10 +21,9 @@ public class UserRepositoryTests {
     private TestEntityManager entityManager;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
-    @Test
-    public void checkIfParamsAreTheSame(){
+    private User createTestObject(){
         User testObject = new User();
 
         testObject.setUsername("Bob");
@@ -40,11 +36,18 @@ public class UserRepositoryTests {
         testObject.setCity("Warsaw");
         testObject.setCountry("Poland");
 
+        return testObject;
+    }
+
+    @Test
+    public void checkIfParamsAreTheSame(){
+        User testObject = createTestObject();
         entityManager.persist(testObject);
         entityManager.flush();
 
         User found = userRepository.findByUsername(testObject.getUsername());
 
+        assertThat(found.getId()).isEqualTo(testObject.getId());
         assertThat(found.getUsername()).isEqualTo(testObject.getUsername());
         assertThat(found.getPassword()).isEqualTo(testObject.getPassword());
         assertThat(found.getPasswordConfirm()).isEqualTo(found.getPassword());
@@ -61,13 +64,7 @@ public class UserRepositoryTests {
 
     @Test
     public void whenFindByUserNameThenReturnUser() {
-        User testObject = new User();
-        testObject.setUsername("Bob");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setAge(new Random(100).nextInt());
-        testObject.setEmail("randomemail@gmail.ru");
-        testObject.setGender("Male");
+        User testObject = createTestObject();
 
         entityManager.persist(testObject);
         entityManager.flush();
@@ -78,13 +75,7 @@ public class UserRepositoryTests {
 
     @Test
     public void whenFindByEmailThenReturnUser(){
-        User testObject = new User();
-        testObject.setUsername("Bob");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setAge(new Random(100).nextInt());
-        testObject.setEmail("randomemail@gmail.ru");
-        testObject.setGender("Male");
+        User testObject = createTestObject();
 
         entityManager.persist(testObject);
         entityManager.flush();
@@ -95,13 +86,7 @@ public class UserRepositoryTests {
 
     @Test
     public void whenFindByIdThenReturnUser(){
-        User testObject = new User();
-        testObject.setUsername("Bob");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setAge(new Random(100).nextInt());
-        testObject.setEmail("randomemail@gmail.ru");
-        testObject.setGender("Male");
+        User testObject = createTestObject();
 
         entityManager.persist(testObject);
         entityManager.flush();
