@@ -8,9 +8,9 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1 th:text="'Error: ' + ${#response.getStatus()}"></h1>
-        <h3>Sorry, you can't access this page.</h3>
-        <a href="/home">Back to home page</a>
+        <h1 th:text="#{Error} + ' ' + ${#response.getStatus()}"></h1>
+        <h3 th:text="#{Error403Text}"></h3>
+        <a href="/home" th:text="#{HomeBack}"></a>
     </div>
 </div>
 
