@@ -15,7 +15,6 @@ public class Product {
     @Column(name = "image") @URL private String image_url;
     @Column(name = "price") @NotNull private double price ;
 
-
     public long getId() {
         return id;
     }
