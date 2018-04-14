@@ -17,17 +17,17 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" th:href="@{/category}" th:text="#{Categories}"></a>
-                <a class="nav-item nav-link" th:href="@{/about}" th:text="#{About}"></a>
-                <a class="nav-item nav-link" th:href="@{/help}" th:text="#{Help}"></a>
-                <span class="navbar-text" th:text="#{LoggedAs}"></span>
-                <button class="btn btn-sm btn-outline-warning my-2 my-sm-0"><a th:href="@{/logout}" style="color:inherit" th:text="#{LogOut}"></a></button>
-                <button class="btn btn-sm btn-outline-success my-2 my-sm-0"><a th:href="@{/login}" style="color:inherit" th:text="#{LogIn}"></a></button>
+                <a class="nav-item nav-link" th:href="@{/category}" th:text="#{header.categories}"></a>
+                <a class="nav-item nav-link" th:href="@{/about}" th:text="#{header.about}"></a>
+                <a class="nav-item nav-link" th:href="@{/help}" th:text="#{header.help}"></a>
+                <span class="navbar-text" th:text="#{header.logged}"></span>
+                <button class="btn btn-sm btn-outline-warning my-2 my-sm-0"><a th:href="@{/logout}" style="color:inherit" th:text="#{user.log_out}"></a></button>
+                <button class="btn btn-sm btn-outline-success my-2 my-sm-0"><a th:href="@{/login}" style="color:inherit" th:text="#{user.log_in}"></a></button>
             </div>
         </div>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" th:text="#{Search}"></button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" th:text="#{header.search}"></button>
         </form>
     </nav>
 </div>

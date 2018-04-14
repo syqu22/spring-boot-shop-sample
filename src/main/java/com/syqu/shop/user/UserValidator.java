@@ -25,38 +25,38 @@ public class UserValidator implements Validator {
         User user = (User) o;
 
         //Username and password can't me empty or contain whitespace
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "register.error.not_empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "register.error.not_empty");
 
         // Username must have from 4 characters to 32
         if (user.getUsername().length() < 4) {
-            errors.rejectValue("username", "UsernameLengthLess4");
-        }if(user.getUsername().length() > 32){
-            errors.rejectValue("username","UsernameLengthOver32");
+            errors.rejectValue("username", "register.error.username.less_4");
+        }
+        if(user.getUsername().length() > 32){
+            errors.rejectValue("username","register.error.username.over_32");
         }
         //Username can't be duplicated
         if (userService.findByUsername(user.getUsername()) != null) {
-            errors.rejectValue("username", "DuplicatedUsername");
+            errors.rejectValue("username", "register.error.duplicated.username");
         }
         //Email can't be duplicated
         if (userService.findByEmail(user.getEmail()) != null){
-            errors.rejectValue("email","DuplicatedEmail");
+            errors.rejectValue("email", "register.error.duplicated.email");
         }
         //Password must have at least 8 characters and max 32
         if (user.getPassword().length() < 8) {
-            errors.rejectValue("password", "PasswordLengthLess8");
+            errors.rejectValue("password", "register.error.password.less_8");
         }
         if (user.getPassword().length() > 32){
-            errors.rejectValue("password","PasswordLengthOver32");
+            errors.rejectValue("password", "register.error.password.over_32");
         }
         //Password must be the same as the confirmation password
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "DiffPasswordConfirm");
+            errors.rejectValue("passwordConfirm", "register.error.diff_password");
         }
-
         //Age needs to be higher than 13
         if (user.getAge() <= 13){
-            errors.rejectValue("age","AgeSize");
+            errors.rejectValue("age", "register.error.age_size");
         }
     }
 }
