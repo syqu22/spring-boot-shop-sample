@@ -1,10 +1,10 @@
 <!doctype HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header-css">
-        <meta charset="utf-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" th:href="@{webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
-        <link rel="stylesheet" type="text/css"  th:href="@{css/style.css}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css"  th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css/}"/>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/style.css}"/>
     <title>E-shop N3XT</title>
 </head>
 <body>
@@ -17,9 +17,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/" th:text="#{Categories}"></a>
-                <a class="nav-item nav-link" th:href="@{../about.html}" th:text="#{About}"></a>
-                <a class="nav-item nav-link" href="/" th:text="#{Help}"></a>
+                <a class="nav-item nav-link" th:href="@{/category}" th:text="#{Categories}"></a>
+                <a class="nav-item nav-link" th:href="@{/about}" th:text="#{About}"></a>
+                <a class="nav-item nav-link" th:href="@{/help}" th:text="#{Help}"></a>
                 <span class="navbar-text" th:text="#{LoggedAs}"></span>
                 <button class="btn btn-sm btn-outline-warning my-2 my-sm-0"><a th:href="@{/logout}" style="color:inherit" th:text="#{LogOut}"></a></button>
                 <button class="btn btn-sm btn-outline-success my-2 my-sm-0"><a th:href="@{/login}" style="color:inherit" th:text="#{LogIn}"></a></button>

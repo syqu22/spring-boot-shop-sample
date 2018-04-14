@@ -1,16 +1,20 @@
-body{
+html {
+    height: 100%;
+}
+
+body {
     position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
     min-height: 100%;
-    margin-bottom: 75px;
 }
 
 footer{
     position:absolute;
-    bottom:0;
-    height: 0;
+    bottom: 0;
     line-height: 75px;
 }
 
-.error-alert{
-    padding-top: 20px;
+.alert{
+    padding-top: 5px;
 }

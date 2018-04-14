@@ -28,36 +28,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/","/home","/index","/about","/help","/login","/register","/products/**")
-                .permitAll()
-                .antMatchers("/user/**").hasRole("USER")
-                .anyRequest().authenticated().and()
-                .formLogin().loginPage("/login").permitAll().and()
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/","/home","/index","/about","/help","/login","/register","/product/**").permitAll().and()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/home").permitAll().and()
                 .logout().invalidateHttpSession(true).clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
     }
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/webjars/**", "/js/**","/error/**");
-        web.ignoring().antMatchers("/css/**","/fonts/**","/libs/**","/img/**");
+        web.ignoring().antMatchers("/webjars/**", "/js/**","/error/**"
+                , "/css/**","/fonts/**","/libs/**","/img/**","/static/**");
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("username").password(bCryptPasswordEncoder()
-                .encode("password123")).roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder()
+                .encode("admin")).roles("ADMIN");
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Bean

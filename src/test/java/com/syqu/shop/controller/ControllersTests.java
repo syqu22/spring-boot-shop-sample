@@ -17,8 +17,6 @@ public class ControllersTests {
     @Autowired
     AdminController adminController;
     @Autowired
-    ContactController contactController;
-    @Autowired
     LoginController loginController;
     @Autowired
     RegisterController registerController;
@@ -35,11 +33,6 @@ public class ControllersTests {
     @Test
     public void checkIfUserControllerNotNull() {
         assertThat(userController).isNotNull();
-    }
-
-    @Test
-    public void checkIfContactControllerNotNull() {
-        assertThat(contactController).isNotNull();
     }
 
     @Test

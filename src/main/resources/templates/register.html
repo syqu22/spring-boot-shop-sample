@@ -73,7 +73,8 @@
                                title="age" required="true"/>
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
                     </div>
-                    <p th:text="#{RegisterRequired}"></p>
+
+                    <p th:text="#{RegisterRequired}" style="color:cornflowerblue"></p>
                     <button type="submit" th:text="#{RegisterButton}"></button>
                 </fieldset>
             </form>
