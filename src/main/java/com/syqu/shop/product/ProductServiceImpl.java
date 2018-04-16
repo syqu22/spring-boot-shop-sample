@@ -18,25 +18,21 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void edit(Product product, Product newProduct) {
-        //TODO change it
-        productRepository.delete(product);
-        productRepository.save(newProduct);
+    public void edit(long id, Product newProduct) {
+        Product found = productRepository.findById(id);
+        found.setName(newProduct.getName());
+        found.setImageUrl(newProduct.getImageUrl());
+        found.setDescription(newProduct.getDescription());
+        found.setPrice(newProduct.getPrice());
     }
 
     @Override
-    public void delete(long productId) {
-        productRepository.delete(findById(productId));
+    public void delete(long id) {
+        productRepository.delete(findById(id));
     }
 
-    //TODO add exception handling
     @Override
     public Product findById(long id) {
         return productRepository.findById(id);
-    }
-
-    @Override
-    public Product findByName(String name) {
-        return productRepository.findByName(name);
     }
 }

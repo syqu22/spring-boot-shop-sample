@@ -9,12 +9,14 @@
         <footer>
             <span th:text="#{footer.copyright}"></span>
             <label>
-                <select class="custom-select">
+                <select class="custom-select" id="select-lang">
                     <option value="eng" th:text="#{footer.language.en}"></option>
                     <option value="pl" th:text="#{footer.language.pl}"></option>
                     <option value="den" th:text="#{footer.language.den}"></option>
                 </select>
             </label>
+            <span><a th:href="@{/about}" th:text="#{about.name}"></a></span>
+            <span><a th:href="@{/help}" th:text="#{help.name}"></a ></span>
         </footer>
     </div>
     <script type="text/javascript" th:src="@{webjars/jquery/3.3.0/jquery.min.js}"></script>

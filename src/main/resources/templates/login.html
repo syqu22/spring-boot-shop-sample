@@ -27,7 +27,7 @@
                     <div th:if="${param.error}">
                         <div class="alert alert-danger" th:text="*{error}"></div>
                     </div>
-                    <span th:text="#{login.no_account}"><a th:href="@{/register}" th:text="#{register.button}"></a></span>
+                    <span th:text="#{login.no_account}"></span><span><a th:href="@{/register}" th:text="#{register.button}"></a></span>
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <input type="submit" name="login-sumbit" id="login-sumbit" class="btn btn-lg btn-primary btn-block" value="Sign In"/>

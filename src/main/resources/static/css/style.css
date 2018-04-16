@@ -3,16 +3,26 @@ html {
 }
 
 body {
+    background: lightblue;
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
 }
 
-footer{
+span {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer {
     position:absolute;
     bottom: 0;
     line-height: 75px;
+}
+
+.btn {
+    padding-left: 10px;
 }
 
 .alert{
