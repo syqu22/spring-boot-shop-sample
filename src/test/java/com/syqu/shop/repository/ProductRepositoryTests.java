@@ -68,4 +68,14 @@ public class ProductRepositoryTests {
         Product found = productRepository.findById(testObject.getId());
         assertThat(found.getId()).isEqualTo(testObject.getId());
     }
+
+    @Test
+    public void whenFindByIdAndNoProductThenReturnNull(){
+        assertThat(productRepository.findById(new Random().nextLong())).isNull();
+    }
+
+    @Test
+    public void whenFindByNameAndNoProductThenReturnNull(){
+        assertThat(productRepository.findByName("xxfortniteplayerxx")).isNull();
+    }
 }

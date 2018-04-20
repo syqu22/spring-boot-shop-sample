@@ -11,9 +11,9 @@ import javax.validation.constraints.NotNull;
 public class Product {
     @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     @Column(name = "name") @NotNull @NotEmpty private String name;
-    @Column(name = "description",length = 2000) @NotNull @NotEmpty private String description;
+    @Column(name = "description",length = 500) @NotNull @NotEmpty private String description;
     @Column(name = "image") @URL private String image_url;
-    @Column(name = "price") @NotNull private double price ;
+    @Column(name = "price") private double price ;
 
     public long getId() {
         return id;

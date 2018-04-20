@@ -94,4 +94,19 @@ public class UserRepositoryTests {
         User found = userRepository.findById(testObject.getId());
         assertThat(found.getId()).isEqualTo(testObject.getId());
     }
+
+    @Test
+    public void whenFindByIdAndNoUserThenReturnNull() {
+        assertThat(userRepository.findById(new Random().nextLong())).isNull();
+    }
+
+    @Test
+    public void whenFindByUsernameAndNoUserThenReturnNull() {
+        assertThat(userRepository.findByUsername("xxminecraftplayerxx")).isNull();
+    }
+
+    @Test
+    public void whenFindByEmailAndNoUserThenReturnNull() {
+        assertThat(userRepository.findByEmail("whatis@going.on")).isNull();
+    }
 }

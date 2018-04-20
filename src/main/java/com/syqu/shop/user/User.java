@@ -15,7 +15,7 @@ public class User {
     @NotEmpty @NotNull private String passwordConfirm;
     @Column(name = "first_name") private String firstName;
     @Column(name = "last_name") private String lastName;
-    @Column(name = "age")  private int age;
+    @Column(name = "age") private int age;
     @Column(name = "city") private String city;
     @Column(name = "country") private  String country;
     @Column(name = "gender") @NotEmpty @NotNull private String gender;
