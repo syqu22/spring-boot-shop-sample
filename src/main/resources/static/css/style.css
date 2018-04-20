@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: lightblue;
+    background: ghostwhite;
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
@@ -21,10 +21,19 @@ footer {
     line-height: 75px;
 }
 
+.container{
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
 .btn {
     padding-left: 10px;
 }
 
 .alert{
     padding-top: 5px;
+}
+
+#header-username{
+    color: ghostwhite;
 }

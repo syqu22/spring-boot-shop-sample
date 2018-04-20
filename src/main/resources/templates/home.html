@@ -1,18 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/header :: header-css">
 </head>
+
 <body>
 
-<div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/header :: header"></div>
 
-<div class="container">
-    <div class="starter-template">
-        <h2 th:text="#{home.title}"></h2>
+    <div class="container">
+        <div class="starter-template">
+            <h2 th:text="#{home.title}"></h2>
+        </div>
     </div>
-</div>
 
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 
 </body>
+
 </html>
