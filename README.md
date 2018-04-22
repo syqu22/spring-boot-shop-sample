@@ -13,9 +13,28 @@ You can clone this repository and use it localy:
 ```sh
 $ git clone https://github.com/syqu22/spring-boot-shop-sample.git
 ```
-After that you should do clean install using Maven command:
+**Using Maven plugin**
+
+First you should do clean installation:
 ```sh
-$ mvnw clean install
+$ mvn clean install
+```
+You can start application with:
+```sh
+$ mvn spring-boot:run
+```
+Or by creating Jar file:
+```sh
+$ mvn clean package
+```
+and running it:
+```sh
+$ java -jar target/shop-x.x.x.jar
+```
+
+You can run tests using:
+```sh
+$ mvn test
 ```
 
 ## Logins
