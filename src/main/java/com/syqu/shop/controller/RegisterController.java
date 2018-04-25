@@ -38,7 +38,7 @@ public class RegisterController {
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
-            logger.error("Error in userForm");
+            logger.error(String.valueOf(bindingResult.getFieldError()));
             return "register";
         }
         userService.save(userForm);

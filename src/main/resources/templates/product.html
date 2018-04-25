@@ -10,7 +10,11 @@
 
     <div class="container">
         <div class="starter-template">
-
+            <h1 th:text="${product.getId()}"></h1>
+            <h1 th:text="${product.getName()}"></h1>
+            <h1 th:text="${product.getDescription()}"></h1>
+            <img th:src="${product.getImageUrl()}">
+            <h1 th:text="${product.getPrice()}"></h1>
         </div>
     </div>
 

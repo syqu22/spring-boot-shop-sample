@@ -26,6 +26,9 @@ public class ProductController {
     @GetMapping("/product/id/{id}")
     public String product(@PathVariable long id, Model model){
         Product product = productService.findById(id);
+        if (product == null){
+            return "404";
+        }
         model.addAttribute("product",product);
 
         return "product";
@@ -40,7 +43,7 @@ public class ProductController {
     @PostMapping("/product/new")
     public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            logger.error("Error in productForm");
+            logger.error(String.valueOf(bindingResult.getFieldError()));
             return "newproduct";
         }
         productService.save(productForm);
