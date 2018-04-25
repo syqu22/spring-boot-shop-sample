@@ -27,7 +27,8 @@ public class ProductController {
     public String product(@PathVariable long id, Model model){
         Product product = productService.findById(id);
         if (product == null){
-            return "404";
+            logger.error("Product with id: " + id + " not found.");
+            return "error/404";
         }
         model.addAttribute("product",product);
 
@@ -44,7 +45,7 @@ public class ProductController {
     public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             logger.error(String.valueOf(bindingResult.getFieldError()));
-            return "newproduct";
+            return "error";
         }
         productService.save(productForm);
 
