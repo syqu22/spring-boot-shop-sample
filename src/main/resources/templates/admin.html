@@ -10,8 +10,8 @@
 
     <div class="container">
         <div class="starter-template">
-            <h1 th:text="#{admin.create.product}"></h1>
-            <a th:src="@{newproduct.html}" th:text="CLICK"></a>
+            <h3 th:text="#{admin.create.product}"></h3>
+            <a th:href="@{product/new}">click</a>
         </div>
     </div>
     <div th:replace="fragments/footer :: footer"></div>

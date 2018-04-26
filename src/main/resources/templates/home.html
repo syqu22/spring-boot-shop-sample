@@ -9,9 +9,20 @@
     <div th:replace="fragments/header :: header"></div>
 
     <div class="container">
-        <div class="starter-template">
             <h2 th:text="#{home.title}"></h2>
-        </div>
+    </div>
+
+    <div class="card-deck" th:if="${!products.isEmpty()}" >
+                <div class="card mb-3" th:each="product : ${products}">
+                    <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${product.getName()}"></h4>
+                        <p class="card-text" th:text="${product.getDescription()}"></p>
+                    </div>
+                    <div class="card-footer">
+                        <p th:text="${product.getPrice()}"></p>
+                    </div>
+                </div>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>

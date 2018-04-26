@@ -37,3 +37,7 @@ footer {
 #header-username{
     color: ghostwhite;
 }
+
+.card{
+    max-width: 20px;
+}
