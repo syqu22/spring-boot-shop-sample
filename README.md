@@ -1,5 +1,5 @@
 # **Spring Boot - Shop Sample**
-[![Build Status](https://travis-ci.org/syqu22/spring-shop-demo.svg?branch=master)](https://travis-ci.org/syqu22/spring-shop-demo)
+[![Build Status](https://travis-ci.org/syqu22/spring-boot-shop-sample.svg?branch=master)](https://travis-ci.org/syqu22/spring-boot-shop-sample)
 
 <img src="src/main/resources/static/images/brand.png" height=100px width=180>
 
