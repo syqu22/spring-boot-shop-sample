@@ -46,8 +46,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setUsername(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -58,8 +57,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setUsername("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -70,8 +68,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setEmail("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -82,8 +79,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setEmail("syqu.pl");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -94,8 +90,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setEmail(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -106,8 +101,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setPassword(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -118,8 +112,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setPassword("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -130,8 +123,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setPasswordConfirm(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -142,8 +134,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setPasswordConfirm("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -154,8 +145,7 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setGender(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -166,7 +156,6 @@ public class UserEntityTests {
         User testObject = createTestObject();
         testObject.setGender("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 }

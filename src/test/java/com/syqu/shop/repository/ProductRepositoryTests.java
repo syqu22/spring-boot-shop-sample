@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,8 +38,7 @@ public class ProductRepositoryTests {
     @Test
     public void checkIfParamsAreTheSame(){
         Product testObject = createTestObject();
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findByName(testObject.getName());
 
@@ -52,8 +52,7 @@ public class ProductRepositoryTests {
     @Test
     public void whenFindByNameThenReturnProduct() {
         Product testObject = createTestObject();
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findByName(testObject.getName());
         assertThat(found.getName()).isEqualTo(testObject.getName());
@@ -62,20 +61,40 @@ public class ProductRepositoryTests {
     @Test
     public void whenFindByIdThenReturnProduct(){
         Product testObject = createTestObject();
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findById(testObject.getId());
         assertThat(found.getId()).isEqualTo(testObject.getId());
     }
 
     @Test
-    public void whenFindByIdAndNoProductThenReturnNull(){
+    public void whenFindAllByOrderByIdAscThenReturnAllProducts(){
+        Product testObject1 = createTestObject();
+        Product testObject2 = createTestObject();
+        Product testObject3 = createTestObject();
+        entityManager.persistAndFlush(testObject1);
+        entityManager.persistAndFlush(testObject2);
+        entityManager.persistAndFlush(testObject3);
+
+        List<Product> found = productRepository.findAllByOrderByIdAsc();
+        assertThat(found.size()).isEqualTo(3);
+        assertThat(found.get(0).getId()).isEqualTo(testObject1.getId());
+        assertThat(found.get(1).getId()).isEqualTo(testObject2.getId());
+        assertThat(found.get(2).getId()).isEqualTo(testObject3.getId());
+    }
+
+    @Test
+    public void whenFindByIdAndNoProductReturnNull(){
         assertThat(productRepository.findById(new Random().nextLong())).isNull();
     }
 
     @Test
-    public void whenFindByNameAndNoProductThenReturnNull(){
-        assertThat(productRepository.findByName("xxfortniteplayerxx")).isNull();
+    public void whenFindByNameAndNoProductReturnNull(){
+        assertThat(productRepository.findByName("random string")).isNull();
+    }
+
+    @Test
+    public void whenFindAllByOrderByIdAscAndNoProductsReturnNull(){
+        assertThat(productRepository.findAllByOrderByIdAsc()).isNullOrEmpty();
     }
 }
