@@ -67,8 +67,8 @@
                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
                         </div>
 
-                        <p th:text="#{register.required}" style="color:rgb(46, 109, 228)"></p>
-                        <button type="submit" th:text="#{register.button}"></button>
+                        <p th:text="#{register.required}" style="color:rgb(46, 109, 228);padding-top: 20px"></p>
+                        <button class="btn btn-outline-dark" type="submit" th:text="#{register.button}"></button>
                     </fieldset>
                 </form>
             </div>
