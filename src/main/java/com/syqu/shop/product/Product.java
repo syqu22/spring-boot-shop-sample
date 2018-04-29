@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "product")
+@Table(name = "PRODUCT")
 public class Product {
     @Column(name = "product_id") @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     @Column(name = "name") @NotNull @NotEmpty private String name;

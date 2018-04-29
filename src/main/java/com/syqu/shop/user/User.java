@@ -1,12 +1,15 @@
 package com.syqu.shop.user;
 
+import com.syqu.shop.user.cart.ShoppingCart;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "USER")
 public class User {
     @Column(name = "user_id") @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     @Column(name = "username", unique = true) @NotEmpty @NotNull private String username;
@@ -20,6 +23,7 @@ public class User {
     @Column(name = "country") private  String country;
     @Column(name = "gender") @NotEmpty @NotNull private String gender;
     @Column(name = "balance") private double balance;
+    @Column(name = "shopping_cart") @OneToMany private Set<ShoppingCart> shoppingCart;
 
     public long getId() {
         return id;
@@ -116,6 +120,14 @@ public class User {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public Set<ShoppingCart> getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(Set<ShoppingCart> shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
     @Override
