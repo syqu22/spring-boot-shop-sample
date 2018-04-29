@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "user")
 public class User {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
+    @Column(name = "user_id") @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     @Column(name = "username", unique = true) @NotEmpty @NotNull private String username;
     @Column(name = "email", unique = true) @Email @NotEmpty @NotNull private String email;
     @NotEmpty @NotNull private String password;

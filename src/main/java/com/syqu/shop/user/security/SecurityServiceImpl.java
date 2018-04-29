@@ -1,4 +1,4 @@
-package com.syqu.shop.service;
+package com.syqu.shop.user.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

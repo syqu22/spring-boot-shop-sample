@@ -1,4 +1,4 @@
-package com.syqu.shop.service;
+package com.syqu.shop.user.security;
 
 import com.syqu.shop.user.User;
 import com.syqu.shop.user.UserRepository;

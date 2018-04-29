@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "product")
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
+    @Column(name = "product_id") @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     @Column(name = "name") @NotNull @NotEmpty private String name;
     @Column(name = "description",length = 500) @NotNull @NotEmpty private String description;
     @Column(name = "image") @URL private String image_url;

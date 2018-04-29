@@ -29,8 +29,8 @@
                     <ul  class="navbar-nav ml-auto">
                         <li class="navbar-text" th:text="#{header.logged}" sec:authorize="isAuthenticated()"></li>
                         <li class="nav-item" sec:authorize="isAuthenticated()">
-                            <a class="nav-link" sec:authorize="hasRole(ADMIN)" th:href="@{/admin}" th:text="${#httpServletRequest.getRemoteUser()}"></a>
-                            <a class="nav-link" sec:authorize="hasRole(USER) && !hasRole(ADMIN)" th:href="@{/user}" th:text="${#httpServletRequest.getRemoteUser()}"></a>
+                            <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" style="color: #1e90ff" th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"></a>
+                            <a class="nav-link" sec:authorize="hasRole('ROLE_USER')" th:href="@{/user}" style="color: #91a8ff;" th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"></a>
                         </li>
                         <li class="nav-item" sec:authorize="isAuthenticated()">
                             <a class="nav-link" th:href="@{/logout}" th:text="#{user.log_out}"></a>
