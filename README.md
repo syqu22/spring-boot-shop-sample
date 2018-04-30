@@ -3,6 +3,10 @@
 
 <img src="src/main/resources/static/images/brand.png" height=100px width=180>
 
+## Caution!
+
+**01-05-2018:** Project is still in progress and may lack a lot of core features, thank you for understanding. ✋
+
 ## Description
 
 This is my first project using Spring. I wanted to do e-commerce web application to learn Spring. I have used **Spring Boot**, **Spring Security**, **Spring Data JPA** with **H2 database**, for views i have used **Thymeleaf** template and **Bootstrap** CSS framework.
