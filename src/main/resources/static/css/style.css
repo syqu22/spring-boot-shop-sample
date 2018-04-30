@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: ghostwhite;
+    background: rgb(209, 209, 216);
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
@@ -16,12 +16,12 @@ span {
 }
 
 footer {
-    position:absolute;
+    position: absolute;
     bottom: 0;
-    line-height: 75px;
+    line-height: 50px;
 }
 
-.container{
+.container {
     padding-top: 15px;
     padding-bottom: 8px;
 }
@@ -30,7 +30,7 @@ footer {
     padding-left: 10px;
 }
 
-.alert{
+.alert {
     padding-top: 5px;
 }
 
@@ -38,6 +38,21 @@ footer {
     color: ghostwhite;
 }
 
-.card{
+nav {
+    height: 60px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 15px;
+    transition: all 300ms;
+}
+
+.navbar-brand:hover, .info-slide:active {
+    transform: scale(1.5);
+}
+
+.card {
     max-width: 20px;
 }
