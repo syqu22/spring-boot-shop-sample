@@ -1,19 +1,40 @@
 package com.syqu.shop.product;
 
+import com.syqu.shop.user.cart.ShoppingCart;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
-    @Column(name = "product_id") @Id @GeneratedValue(strategy = GenerationType.AUTO) private long id;
-    @Column(name = "name") @NotNull @NotEmpty private String name;
-    @Column(name = "description",length = 500) @NotNull @NotEmpty private String description;
-    @Column(name = "image") @URL private String image_url;
-    @Column(name = "price") private double price ;
+
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "name")
+    @NotNull @NotEmpty
+    private String name;
+
+    @Column(name = "description",length = 500)
+    @NotNull
+    @NotEmpty
+    private String description;
+
+    @Column(name = "image")
+    @URL private String image_url;
+
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    private Set<ShoppingCart> carts;
 
     public long getId() {
         return id;
@@ -47,12 +68,20 @@ public class Product {
         this.image_url = image_url;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Set<ShoppingCart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<ShoppingCart> carts) {
+        this.carts = carts;
     }
 
     @Override

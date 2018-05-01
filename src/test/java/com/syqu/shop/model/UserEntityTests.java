@@ -28,6 +28,8 @@ public class UserEntityTests {
         testObject.setUsername("Mark");
         testObject.setPassword("longpassword123");
         testObject.setPasswordConfirm("longpassword123");
+        testObject.setFirstName("Max");
+        testObject.setLastName("Rox");
         testObject.setAge(new Random(100).nextInt());
         testObject.setEmail("randomemail@gmail.ru");
         testObject.setGender("Male");

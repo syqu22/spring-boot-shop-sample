@@ -1,14 +1,16 @@
 package com.syqu.shop.user.cart;
 
-import com.syqu.shop.product.Product;
+import com.syqu.shop.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService{
     private final ShoppingCartRepository shoppingCartRepository;
+    private final ProductService productService;
 
     @Autowired
-    public ShoppingCartServiceImpl(ShoppingCartRepository shoppingCartRepository) {
+    public ShoppingCartServiceImpl(ShoppingCartRepository shoppingCartRepository, ProductService productService) {
         this.shoppingCartRepository = shoppingCartRepository;
+        this.productService = productService;
     }
 
     @Override
@@ -17,13 +19,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     }
 
     @Override
-    public void addProduct(long id, Product product, int quantify) {
-        findById(id).getProducts().put(product, quantify);
+    public void addProduct(long id, long productId) {
+        findById(id).getProducts().add(productService.findById(productId));
+
     }
 
     @Override
-    public void removeProduct(long id, Product product) {
-        findById(id).getProducts().remove(product);
+    public void removeProduct(long id, long productId) {
+        findById(id).getProducts().remove(productService.findById(productId));
     }
 
     @Override

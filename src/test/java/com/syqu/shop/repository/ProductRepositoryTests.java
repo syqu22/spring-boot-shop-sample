@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class ProductRepositoryTests {
 
         testObject.setName("testName");
         testObject.setDescription("testDescriptionTestDescription");
-        testObject.setPrice(new Random(1000).nextDouble());
+        testObject.setPrice(new BigDecimal(new Random().nextInt(1000)));
         testObject.setImageUrl("https://avatars1.githubusercontent.com/u/30699233?s=400&u=cf0bc2b388b5c72364aaaedf26a8aab63f97ffcc&v=4");
 
         return testObject;
