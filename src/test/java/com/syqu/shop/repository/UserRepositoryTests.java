@@ -40,6 +40,11 @@ public class UserRepositoryTests {
     }
 
     @Test
+    public void checkIfUserRepositoryIsNotNull(){
+        assertThat(userRepository).isNotNull();
+    }
+
+    @Test
     public void checkIfParamsAreTheSame(){
         User testObject = createTestObject();
         entityManager.persist(testObject);

@@ -24,6 +24,8 @@ public class ControllersTests {
     UserController userController;
     @Autowired
     ProductController productController;
+    @Autowired
+    CartController cartController;
 
     @Test
     public void checkIfHomeControllerNotNull() {
@@ -53,5 +55,10 @@ public class ControllersTests {
     @Test
     public void checkIfProductControllerNotNull() {
         assertThat(productController).isNotNull();
+    }
+
+    @Test
+    public void checkIfCartControllerNotNull() {
+        assertThat(cartController).isNotNull();
     }
 }

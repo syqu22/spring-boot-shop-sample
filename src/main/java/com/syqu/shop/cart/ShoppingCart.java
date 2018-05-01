@@ -1,4 +1,4 @@
-package com.syqu.shop.user.cart;
+package com.syqu.shop.cart;
 
 import com.syqu.shop.product.Product;
 import com.syqu.shop.user.User;

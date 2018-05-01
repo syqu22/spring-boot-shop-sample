@@ -37,6 +37,11 @@ public class ProductRepositoryTests {
     }
 
     @Test
+    public void checkIfProductRepositoryIsNotNull(){
+        assertThat(productRepository).isNotNull();
+    }
+
+    @Test
     public void checkIfParamsAreTheSame(){
         Product testObject = createTestObject();
         entityManager.persistAndFlush(testObject);

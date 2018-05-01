@@ -1,4 +1,4 @@
-package com.syqu.shop.user.cart;
+package com.syqu.shop.cart;
 
 import com.syqu.shop.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

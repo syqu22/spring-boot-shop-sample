@@ -18,24 +18,8 @@ public class HomeController {
         this.productService = productService;
     }
 
-    @GetMapping("/")
+    @GetMapping(value = {"/","/index","/home"})
     public String home(Model model){
-        List<Product>products = getAllProducts();
-
-        model.addAttribute("products",products);
-        return "home";
-    }
-
-    @GetMapping("/index")
-    public String home1(Model model){
-        List<Product>products = getAllProducts();
-
-        model.addAttribute("products",products);
-        return "home";
-    }
-
-    @GetMapping("/home")
-    public String home2(Model model){
         List<Product>products = getAllProducts();
 
         model.addAttribute("products",products);

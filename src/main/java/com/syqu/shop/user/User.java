@@ -1,6 +1,6 @@
 package com.syqu.shop.user;
 
-import com.syqu.shop.user.cart.ShoppingCart;
+import com.syqu.shop.cart.ShoppingCart;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

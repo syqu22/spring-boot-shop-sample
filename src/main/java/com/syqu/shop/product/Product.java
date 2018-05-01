@@ -1,6 +1,6 @@
 package com.syqu.shop.product;
 
-import com.syqu.shop.user.cart.ShoppingCart;
+import com.syqu.shop.cart.ShoppingCart;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
