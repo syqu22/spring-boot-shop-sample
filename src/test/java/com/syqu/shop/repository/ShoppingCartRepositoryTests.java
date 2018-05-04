@@ -39,9 +39,8 @@ public class ShoppingCartRepositoryTests {
         testUser.setAge(new Random(100).nextInt());
         testUser.setEmail("randomemail@gmail.ru");
         testUser.setGender("Male");
-        testUser.setBalance(100);
+        testUser.setBalance(new BigDecimal(100));
         testUser.setCity("Warsaw");
-        testUser.setCountry("Poland");
 
         return testUser;
     }

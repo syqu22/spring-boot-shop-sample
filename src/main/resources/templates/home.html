@@ -10,10 +10,8 @@
 
     <div class="container">
             <h2 th:text="#{home.title}"></h2>
-    </div>
-
     <div class="card-deck" th:if="${!products.isEmpty()}" >
-                <div class="card mb-3" th:each="product : ${products}">
+                <div class="card" th:each="product : ${products}">
                     <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${product.getName()}"></h4>
@@ -21,10 +19,13 @@
                     </div>
                     <div class="card-footer">
                         <p th:text="${product.getPrice()}"></p>
+                        <button type="submit" th:onclick="${'addProduct(' + product.getId() + ');'}" class="btn btn-lg btn-outline-info btn-block" th:value="ADD" ></button>
                     </div>
                 </div>
     </div>
+    </div>
 
+    <script type="text/javascript" th:src="@{/js/addproduct.js}"></script>
     <div th:replace="fragments/footer :: footer"></div>
 
 </body>

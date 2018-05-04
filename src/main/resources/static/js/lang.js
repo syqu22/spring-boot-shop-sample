@@ -1,4 +1,3 @@
-//2018 - Aleksander Lejawa
 function changeLanguage(lang){
     const currentUrl = window.location.href;
     window.history.pushState(null, null, window.location.pathname);

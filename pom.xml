@@ -5,7 +5,7 @@
 
     <groupId>com.syqu</groupId>
     <artifactId>shop</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <name>E-shop N3XT</name>
@@ -49,6 +49,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <!-- Spring Boot Thymeleaf -->
         <dependency>
@@ -88,12 +89,6 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <!-- HSQL Database -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <!-- Bootstrap -->
         <dependency>

@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,9 +33,8 @@ public class UserRepositoryTests {
         testObject.setAge(new Random(100).nextInt());
         testObject.setEmail("randomemail@gmail.ru");
         testObject.setGender("Male");
-        testObject.setBalance(100);
+        testObject.setBalance(new BigDecimal(100));
         testObject.setCity("Warsaw");
-        testObject.setCountry("Poland");
 
         return testObject;
     }
@@ -62,7 +62,6 @@ public class UserRepositoryTests {
         assertThat(found.getEmail()).isEqualTo(testObject.getEmail());
         assertThat(found.getAge()).isEqualTo(testObject.getAge());
         assertThat(found.getBalance()).isEqualTo(testObject.getBalance());
-        assertThat(found.getCountry()).isEqualTo(testObject.getCountry());
         assertThat(found.getCity()).isEqualTo(testObject.getCity());
         assertThat(found.getGender()).isEqualTo(testObject.getGender());
     }

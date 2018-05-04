@@ -35,9 +35,8 @@ public class ShoppingCartEntityTests {
         testUser.setAge(new Random(100).nextInt());
         testUser.setEmail("randomemail@gmail.ru");
         testUser.setGender("Male");
-        testUser.setBalance(100);
+        testUser.setBalance(new BigDecimal(100));
         testUser.setCity("Warsaw");
-        testUser.setCountry("Poland");
 
         return testUser;
     }
@@ -74,7 +73,7 @@ public class ShoppingCartEntityTests {
         Set<Product> testProducts = createTestProducts();
 
         testObject.setUser(testUser);
-        testObject.setProducts(testProducts);
+        //testObject.setProducts(testProducts);
 
         return testObject;
     }

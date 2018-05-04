@@ -6,13 +6,15 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "USER")
 public class User {
 
     @Column(name = "id")
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "username", unique = true)
@@ -32,7 +34,7 @@ public class User {
 
     @NotEmpty
     @NotNull
-    private String passwordConfirm;
+    private String passwordConfirm; //TODO REMOVE PASSWORD CONFIRM
 
     @Column(name = "first_name")
     private String firstName;
@@ -46,16 +48,13 @@ public class User {
     @Column(name = "city")
     private String city;
 
-    @Column(name = "country")
-    private  String country;
-
     @Column(name = "gender")
     @NotEmpty
     @NotNull
     private String gender;
 
     @Column(name = "balance")
-    private double balance;
+    private BigDecimal balance;
 
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private ShoppingCart shoppingCart;
@@ -133,14 +132,6 @@ public class User {
         this.city = city;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -149,11 +140,11 @@ public class User {
         this.gender = gender;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
@@ -169,6 +160,6 @@ public class User {
     public String toString() {
         return "Id: " + getId() + " User name: " + getUsername() + " E-mail: " + getEmail() + " First name: "
                 + getFirstName() + " Last name: " + getLastName() + " Age: " + getAge() + " City: " + getCity()
-                + " Country: " + getCountry() + " Gender: " + getGender() + " Balance: " + getBalance();
+                + " Gender: " + getGender() + " Balance: " + getBalance();
     }
 }

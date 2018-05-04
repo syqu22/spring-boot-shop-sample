@@ -2,7 +2,9 @@ package com.syqu.shop.cart;
 
 import com.syqu.shop.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ShoppingCartServiceImpl implements ShoppingCartService{
     private final ShoppingCartRepository shoppingCartRepository;
     private final ProductService productService;

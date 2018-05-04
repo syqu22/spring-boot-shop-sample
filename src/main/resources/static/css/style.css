@@ -53,6 +53,15 @@ nav {
     transform: scale(1.5);
 }
 
+.card-deck {
+    padding-left: 20px;
+}
+
 .card {
-    max-width: 20px;
+    max-width: 17rem;
+}
+
+#cart {
+    width: 44px;
+    height: 44px;
 }

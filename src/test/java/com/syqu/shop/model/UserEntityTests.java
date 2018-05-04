@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.validation.ConstraintViolationException;
+import java.math.BigDecimal;
 import java.util.Random;
 
 @RunWith(SpringRunner.class)
@@ -33,9 +34,8 @@ public class UserEntityTests {
         testObject.setAge(new Random(100).nextInt());
         testObject.setEmail("randomemail@gmail.ru");
         testObject.setGender("Male");
-        testObject.setBalance(100);
+        testObject.setBalance(new BigDecimal(100));
         testObject.setCity("Warsaw");
-        testObject.setCountry("Poland");
 
         return testObject;
     }
