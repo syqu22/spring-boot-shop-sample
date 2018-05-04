@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class User {
 
     @Column(name = "id")

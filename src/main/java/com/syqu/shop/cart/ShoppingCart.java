@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "SHOPPING_CART")
+@Table(name = "shopping_cart")
 public class ShoppingCart {
 
     @Column(name = "id")
@@ -20,7 +20,7 @@ public class ShoppingCart {
     private User user;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "CART_product", joinColumns = @JoinColumn(name = "CART_id") , inverseJoinColumns = @JoinColumn(name = "PRODUCT_id") )
+    @JoinTable(name = "cart_product", joinColumns = @JoinColumn(name = "cart") , inverseJoinColumns = @JoinColumn(name = "cart_id") )
     private Set<Product> products;
 
 

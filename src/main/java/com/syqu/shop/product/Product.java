@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "product")
 public class Product {
 
     @Column(name = "id")
@@ -18,7 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "product")
+    @Column(name = "title")
     @NotNull @NotEmpty
     private String name;
 

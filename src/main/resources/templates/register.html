@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row" style="margin-top:20px">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form autocomplete="off" th:action="@{register}" th:object="${userForm}" method="POST">
+                <form class="form-signin" autocomplete="off" th:action="@{register}" th:object="${userForm}" method="POST">
                     <fieldset>
                         <h1 th:text="#{register.title}"></h1>
                         <div class="form-group">

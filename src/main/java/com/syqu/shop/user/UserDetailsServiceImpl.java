@@ -1,7 +1,7 @@
-package com.syqu.shop.config;
+package com.syqu.shop.user;
 
-import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,6 +16,7 @@ import java.util.Set;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+    private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
     private final UserRepository userRepository;
 
     @Autowired
@@ -28,13 +29,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username){
         User user = userRepository.findByUsername(username);
 
-        if (user == null) {
-            throw new UsernameNotFoundException(username);
+        if (user != null) {
+            Set<GrantedAuthority> authorities = new HashSet<>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            logger.debug(String.format("User with name: %s and password: %s created.",user.getUsername(), user.getPassword()));
+            return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+        }else{
+            throw new UsernameNotFoundException("User " + username + " not found!");
         }
-
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-
-        return org.springframework.security.core.userdetails.User.builder().username(user.getUsername()).password(user.getPassword()).authorities(grantedAuthorities).build();
     }
+
+
 }
