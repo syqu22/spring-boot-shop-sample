@@ -13,6 +13,8 @@ This is my first project using Spring. I wanted to do e-commerce web application
 
 ## Screenshots
 
+<img src="src/main/resources/static/images/example1.PNG" height=60% width=95%>
+
 ## Installation
 
 You can clone this repository and use it localy:

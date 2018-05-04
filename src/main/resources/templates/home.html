@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-footer">
                         <p th:text="${product.getPrice()}"></p>
-                        <button type="submit" th:onclick="${'addProduct(' + product.getId() + ');'}" class="btn btn-lg btn-outline-info btn-block" th:value="ADD" ></button>
+                        <input type="submit" th:onclick="${'addProduct(' + product.getId() + ');'}" class="btn btn-lg btn-outline-info btn-block" th:value="#{product.add}" />
                     </div>
                 </div>
     </div>

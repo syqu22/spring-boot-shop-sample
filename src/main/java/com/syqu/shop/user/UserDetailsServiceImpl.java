@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -31,8 +32,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         if (user != null) {
             Set<GrantedAuthority> authorities = new HashSet<>();
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            logger.debug(String.format("User with name: %s and password: %s created.",user.getUsername(), user.getPassword()));
+            if (Objects.equals(username, "admin")) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            }else {
+                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            }
+            logger.debug(String.format("User with name: %s and password: %s created.", user.getUsername(), user.getPassword()));
             return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
         }else{
             throw new UsernameNotFoundException("User " + username + " not found!");
