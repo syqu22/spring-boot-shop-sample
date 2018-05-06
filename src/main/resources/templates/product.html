@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row" style="margin-top:20px">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form autocomplete="off" th:action="@{/product/new}" th:object="${productForm}" class="form" method="POST">
+            <form autocomplete="off" th:object="${productForm}" class="form" method="POST">
                 <fieldset>
                     <h1 th:text="#{admin.create.product}"></h1>
                     <div class="form-group">
@@ -34,7 +34,8 @@
                         <input type="search" th:field="*{price}" class="form-control input-lg" title="price" autofocus="false" />
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
                     </div>
-                    <button type="submit" th:text="#{product.confirm}"></button>
+                    <input th:if="${method} == 'new'" class="btn btn-outline-dark" type="submit" th:action="@{/product/new}" th:value="#{product.confirm}"/>
+                    <input th:if="${method} == 'edit'" class="btn btn-outline-dark" type="submit" th:action="@{/product/edit/{productId}}" th:value="EDIT"/>
                 </fieldset>
             </form>
         </div>

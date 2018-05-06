@@ -15,8 +15,6 @@ public class ControllersTests {
     @Autowired
     HomeController homeController;
     @Autowired
-    AdminController adminController;
-    @Autowired
     LoginController loginController;
     @Autowired
     RegisterController registerController;
@@ -35,11 +33,6 @@ public class ControllersTests {
     @Test
     public void checkIfUserControllerNotNull() {
         assertThat(userController).isNotNull();
-    }
-
-    @Test
-    public void checkIfAdminControllerNotNull() {
-        assertThat(adminController).isNotNull();
     }
 
     @Test

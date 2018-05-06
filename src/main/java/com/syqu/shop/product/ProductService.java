@@ -8,4 +8,5 @@ public interface ProductService {
     void delete(long id);
     Product findById(long id);
     List<Product> findAllByOrderByIdAsc();
+    long count();
 }

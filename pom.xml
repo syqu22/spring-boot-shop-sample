@@ -96,6 +96,12 @@
             <artifactId>bootstrap</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <!-- Font Awesome -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>5.0.10</version>
+        </dependency>
         <!-- JQuery -->
         <dependency>
             <groupId>org.webjars</groupId>

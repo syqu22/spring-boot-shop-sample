@@ -21,11 +21,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void edit(long id, Product newProduct) {
-        Product found = productRepository.findById(id);
+        Product found = productRepository.getOne(id);
         found.setName(newProduct.getName());
         found.setImageUrl(newProduct.getImageUrl());
         found.setDescription(newProduct.getDescription());
         found.setPrice(newProduct.getPrice());
+        save(newProduct);
     }
 
     @Override
@@ -41,5 +42,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllByOrderByIdAsc() {
         return productRepository.findAllByOrderByIdAsc();
+    }
+
+    @Override
+    public long count() {
+        return productRepository.count();
     }
 }
