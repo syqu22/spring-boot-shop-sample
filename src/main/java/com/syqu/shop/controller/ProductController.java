@@ -34,11 +34,12 @@ public class ProductController {
     }
 
     @PostMapping("/product/new")
-    public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult) {
+    public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult, Model model) {
         productValidator.validate(productForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             logger.error(String.valueOf(bindingResult.getFieldError()));
+            model.addAttribute("method", "new");
             return "product";
         }
         productService.save(productForm);
@@ -60,15 +61,16 @@ public class ProductController {
     }
 
     @PostMapping("/product/edit/{id}")
-    public String editProduct(@PathVariable("id") long productId, @ModelAttribute("productForm") Product productForm, BindingResult bindingResult){
+    public String editProduct(@PathVariable("id") long productId, @ModelAttribute("productForm") Product productForm, BindingResult bindingResult, Model model){
         productValidator.validate(productForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             logger.error(String.valueOf(bindingResult.getFieldError()));
-            return "error";
+            model.addAttribute("method", "edit");
+            return "product";
         }
         productService.edit(productId, productForm);
-        logger.debug(String.format("Product with id: %s successfully edited.", productId));
+        logger.debug(String.format("Product with id: %s has been successfully edited.", productId));
 
         return "redirect:/home";
     }

@@ -18,7 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "title")
+    @Column(name = "name")
     @NotNull
     @NotEmpty
     private String name;
@@ -33,7 +33,6 @@ public class Product {
 
     @Column(name = "price")
     @NotNull
-    @NotEmpty
     private BigDecimal price;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")

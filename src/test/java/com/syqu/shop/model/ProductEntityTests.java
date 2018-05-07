@@ -31,8 +31,7 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setName(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -43,8 +42,7 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setName("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -55,8 +53,7 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription(null);
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -67,8 +64,7 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription("");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -83,8 +79,7 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription(stringBuilder.toString());
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
     }
 
     @Test
@@ -95,7 +90,17 @@ public class ProductEntityTests {
         Product testObject = ProductCreator.createTestProduct();
         testObject.setImageUrl("htt://test");
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
+    }
+
+    @Test
+    public void createProductWhenPriceIsNullThrowException() {
+        this.thrown.expect(ConstraintViolationException.class);
+        this.thrown.expectMessage("must not be null");
+
+        Product testObject = ProductCreator.createTestProduct();
+        testObject.setPrice(null);
+
+        entityManager.persistAndFlush(testObject);
     }
 }

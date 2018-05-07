@@ -17,15 +17,16 @@ public class ProductValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Product product = (Product) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title","error.not_empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name","error.not_empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "error.not_empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "error.not_empty");
 
-        // Title must have from 2 characters to 32
+        // Name must have from 2 characters to 32
         if (product.getName().length() <= 1) {
-            errors.rejectValue("title", "product.error.title.less_2");
+            errors.rejectValue("name", "product.error.name.less_2");
         }
         if (product.getName().length() > 32) {
-            errors.rejectValue("title", "product.error.title.over_32");
+            errors.rejectValue("name", "product.error.name.over_32");
         }
     }
 }

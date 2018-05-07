@@ -35,7 +35,7 @@
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
                     </div>
                     <input th:if="${method} == 'new'" class="btn btn-outline-dark" type="submit" th:action="@{/product/new}" th:value="#{product.confirm}"/>
-                    <input th:if="${method} == 'edit'" class="btn btn-outline-dark" type="submit" th:action="@{/product/edit/{productId}}" th:value="EDIT"/>
+                    <input th:if="${method} == 'edit'" class="btn btn-outline-dark" type="submit" th:action="@{/product/edit/{productId}}" th:value="#{product.cancel}"/>
                 </fieldset>
             </form>
         </div>
