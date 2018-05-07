@@ -1,5 +1,6 @@
 package com.syqu.shop.model;
 
+import com.syqu.shop.creator.UserCreator;
 import com.syqu.shop.user.User;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.validation.ConstraintViolationException;
-import java.math.BigDecimal;
-import java.util.Random;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -23,29 +22,12 @@ public class UserEntityTests {
     @Autowired
     private TestEntityManager entityManager;
 
-    private User createTestObject() {
-        User testObject = new User();
-
-        testObject.setUsername("Mark");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setFirstName("Max");
-        testObject.setLastName("Rox");
-        testObject.setAge(new Random(100).nextInt());
-        testObject.setEmail("randomemail@gmail.ru");
-        testObject.setGender("Male");
-        testObject.setBalance(new BigDecimal(100));
-        testObject.setCity("Warsaw");
-
-        return testObject;
-    }
-
     @Test
     public void createUserWhenUsernameIsNullShouldThrowException() {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setUsername(null);
 
         entityManager.persistAndFlush(testObject);
@@ -56,7 +38,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setUsername("");
 
         entityManager.persistAndFlush(testObject);
@@ -67,7 +49,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setEmail("");
 
         entityManager.persistAndFlush(testObject);
@@ -78,7 +60,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must be a well-formed email address");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setEmail("syqu.pl");
 
         entityManager.persistAndFlush(testObject);
@@ -89,7 +71,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setEmail(null);
 
         entityManager.persistAndFlush(testObject);
@@ -100,7 +82,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setPassword(null);
 
         entityManager.persistAndFlush(testObject);
@@ -111,7 +93,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setPassword("");
 
         entityManager.persistAndFlush(testObject);
@@ -122,7 +104,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setPasswordConfirm(null);
 
         entityManager.persistAndFlush(testObject);
@@ -133,7 +115,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setPasswordConfirm("");
 
         entityManager.persistAndFlush(testObject);
@@ -144,7 +126,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setGender(null);
 
         entityManager.persistAndFlush(testObject);
@@ -155,7 +137,7 @@ public class UserEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
         testObject.setGender("");
 
         entityManager.persistAndFlush(testObject);

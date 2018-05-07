@@ -1,5 +1,6 @@
 package com.syqu.shop.repository;
 
+import com.syqu.shop.creator.ProductCreator;
 import com.syqu.shop.product.Product;
 import com.syqu.shop.product.ProductRepository;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
@@ -25,17 +25,6 @@ public class ProductRepositoryTests {
     @Autowired
     private ProductRepository productRepository;
 
-    private Product createTestObject(){
-        Product testObject = new Product();
-
-        testObject.setName("testName");
-        testObject.setDescription("testDescriptionTestDescription");
-        testObject.setPrice(new BigDecimal(new Random().nextInt(1000)));
-        testObject.setImageUrl("https://avatars1.githubusercontent.com/u/30699233?s=400&u=cf0bc2b388b5c72364aaaedf26a8aab63f97ffcc&v=4");
-
-        return testObject;
-    }
-
     @Test
     public void checkIfProductRepositoryIsNotNull(){
         assertThat(productRepository).isNotNull();
@@ -43,7 +32,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void checkIfParamsAreTheSame(){
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findByName(testObject.getName());
@@ -57,7 +46,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void whenFindByNameThenReturnProduct() {
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findByName(testObject.getName());
@@ -66,7 +55,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void whenFindByIdThenReturnProduct(){
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         entityManager.persistAndFlush(testObject);
 
         Product found = productRepository.findById(testObject.getId());
@@ -75,9 +64,9 @@ public class ProductRepositoryTests {
 
     @Test
     public void whenFindAllByOrderByIdAscThenReturnAllProducts(){
-        Product testObject1 = createTestObject();
-        Product testObject2 = createTestObject();
-        Product testObject3 = createTestObject();
+        Product testObject1 = ProductCreator.createTestProduct();
+        Product testObject2 = ProductCreator.createTestProduct();
+        Product testObject3 = ProductCreator.createTestProduct();
         entityManager.persistAndFlush(testObject1);
         entityManager.persistAndFlush(testObject2);
         entityManager.persistAndFlush(testObject3);

@@ -1,5 +1,6 @@
 package com.syqu.shop.model;
 
+import com.syqu.shop.creator.ProductCreator;
 import com.syqu.shop.product.Product;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,8 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.PersistenceException;
 import javax.validation.ConstraintViolationException;
-import java.math.BigDecimal;
-import java.util.Random;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -24,23 +23,12 @@ public class ProductEntityTests {
     @Autowired
     private TestEntityManager entityManager;
 
-    private Product createTestObject() {
-        Product testObject = new Product();
-
-        testObject.setName("testBob");
-        testObject.setDescription("testDescriptionTestDescription");
-        testObject.setPrice(new BigDecimal(new Random().nextInt(1000)));
-        testObject.setImageUrl("https://avatars1.githubusercontent.com/u/30699233?s=400&u=cf0bc2b388b5c72364aaaedf26a8aab63f97ffcc&v=4");
-
-        return testObject;
-    }
-
     @Test
     public void createProductWhenNameIsNullShouldThrowException() {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         testObject.setName(null);
 
         entityManager.persist(testObject);
@@ -52,7 +40,7 @@ public class ProductEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         testObject.setName("");
 
         entityManager.persist(testObject);
@@ -64,7 +52,7 @@ public class ProductEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be null");
 
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription(null);
 
         entityManager.persist(testObject);
@@ -76,7 +64,7 @@ public class ProductEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("must not be empty");
 
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription("");
 
         entityManager.persist(testObject);
@@ -90,9 +78,9 @@ public class ProductEntityTests {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i=0;i<101;i++){
-            stringBuilder.append("omega");
+            stringBuilder.append("testtest");
         }
-        Product testObject = createTestObject();
+        Product testObject = ProductCreator.createTestProduct();
         testObject.setDescription(stringBuilder.toString());
 
         entityManager.persist(testObject);
@@ -104,8 +92,8 @@ public class ProductEntityTests {
         this.thrown.expect(ConstraintViolationException.class);
         this.thrown.expectMessage("org.hibernate.validator.constraints.URL.message");
 
-        Product testObject = createTestObject();
-        testObject.setImageUrl("htt://okxd");
+        Product testObject = ProductCreator.createTestProduct();
+        testObject.setImageUrl("htt://test");
 
         entityManager.persist(testObject);
         entityManager.flush();

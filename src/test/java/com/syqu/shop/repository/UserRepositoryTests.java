@@ -1,5 +1,6 @@
 package com.syqu.shop.repository;
 
+import com.syqu.shop.creator.UserCreator;
 import com.syqu.shop.user.User;
 import com.syqu.shop.user.UserRepository;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,21 +24,6 @@ public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
 
-    private User createTestObject(){
-        User testObject = new User();
-
-        testObject.setUsername("Bob");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setAge(new Random(100).nextInt());
-        testObject.setEmail("randomemail@gmail.ru");
-        testObject.setGender("Male");
-        testObject.setBalance(new BigDecimal(100));
-        testObject.setCity("Warsaw");
-
-        return testObject;
-    }
-
     @Test
     public void checkIfUserRepositoryIsNotNull(){
         assertThat(userRepository).isNotNull();
@@ -46,9 +31,8 @@ public class UserRepositoryTests {
 
     @Test
     public void checkIfParamsAreTheSame(){
-        User testObject = createTestObject();
-        entityManager.persist(testObject);
-        entityManager.flush();
+        User testObject = UserCreator.createTestUser();
+        entityManager.persistAndFlush(testObject);
 
         User found = userRepository.findByUsername(testObject.getUsername());
 
@@ -67,22 +51,10 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void whenFindByUserNameThenReturnUser() {
-        User testObject = createTestObject();
-
-        entityManager.persist(testObject);
-        entityManager.flush();
-
-        User found = userRepository.findByUsername(testObject.getUsername());
-        assertThat(found.getUsername()).isEqualTo(testObject.getUsername());
-    }
-
-    @Test
     public void whenFindByEmailThenReturnUser(){
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
 
         User found = userRepository.findByEmail(testObject.getEmail());
         assertThat(found.getEmail()).isEqualTo(testObject.getEmail());
@@ -90,10 +62,9 @@ public class UserRepositoryTests {
 
     @Test
     public void whenFindByIdThenReturnUser(){
-        User testObject = createTestObject();
+        User testObject = UserCreator.createTestUser();
 
-        entityManager.persist(testObject);
-        entityManager.flush();
+        entityManager.persistAndFlush(testObject);
 
         User found = userRepository.findById(testObject.getId());
         assertThat(found.getId()).isEqualTo(testObject.getId());
