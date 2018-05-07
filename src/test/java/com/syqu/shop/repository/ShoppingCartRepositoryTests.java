@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Random;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -56,11 +57,7 @@ public class ShoppingCartRepositoryTests {
     }
 
     @Test
-    public void whenFindByIdThenReturnShoppingCart(){
-        ShoppingCart testObject = createTestObject();
-        entityManager.persistAndFlush(testObject);
-
-        ShoppingCart found = shoppingCartRepository.findById(testObject.getId());
-        assertThat(found.getId()).isEqualTo(testObject.getId());
+    public void whenFindByIdAndNotFoundReturnNull(){
+        assertThat(shoppingCartRepository.findById(new Random().nextInt())).isNull();
     }
 }

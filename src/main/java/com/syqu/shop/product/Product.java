@@ -19,7 +19,8 @@ public class Product {
     private long id;
 
     @Column(name = "title")
-    @NotNull @NotEmpty
+    @NotNull
+    @NotEmpty
     private String name;
 
     @Column(name = "description",length = 500)
@@ -31,6 +32,8 @@ public class Product {
     @URL private String image_url;
 
     @Column(name = "price")
+    @NotNull
+    @NotEmpty
     private BigDecimal price;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")

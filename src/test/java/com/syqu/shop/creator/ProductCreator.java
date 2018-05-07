@@ -23,25 +23,9 @@ public class ProductCreator {
     public static Set<Product> createTestProducts(){
         Set<Product> testProducts = new HashSet<>();
 
-        Product testProduct1 = new Product();
-        Product testProduct2 = new Product();
-        Product testProduct3 = new Product();
-
-        testProduct1.setName("testProd");
-        testProduct1.setDescription("testDescriptionTestDescription");
-        testProduct1.setPrice(new BigDecimal(new Random().nextInt(1000)));
-
-        testProduct2.setName("testBob");
-        testProduct2.setDescription("testDescriptionTestDescription");
-        testProduct2.setPrice(new BigDecimal(new Random().nextInt(1000)));
-
-        testProduct3.setName("testBob");
-        testProduct3.setDescription("testDescriptionTestDescription");
-        testProduct3.setPrice(new BigDecimal(new Random().nextInt(1000)));
-
-        testProducts.add(testProduct1);
-        testProducts.add(testProduct2);
-        testProducts.add(testProduct3);
+        testProducts.add(createTestProduct());
+        testProducts.add(createTestProduct());
+        testProducts.add(createTestProduct());
 
         return testProducts;
     }

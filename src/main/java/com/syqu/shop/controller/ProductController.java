@@ -2,6 +2,7 @@ package com.syqu.shop.controller;
 
 import com.syqu.shop.product.Product;
 import com.syqu.shop.product.ProductService;
+import com.syqu.shop.product.ProductValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
+    private final ProductValidator productValidator;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, ProductValidator productValidator) {
         this.productService = productService;
+        this.productValidator = productValidator;
     }
 
     @GetMapping("/product/new")
@@ -32,9 +35,11 @@ public class ProductController {
 
     @PostMapping("/product/new")
     public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult) {
+        productValidator.validate(productForm, bindingResult);
+
         if (bindingResult.hasErrors()) {
             logger.error(String.valueOf(bindingResult.getFieldError()));
-            return "error";
+            return "product";
         }
         productService.save(productForm);
         logger.debug(String.format("Product with id: %s successfully created.", productForm.getId()));
@@ -56,6 +61,8 @@ public class ProductController {
 
     @PostMapping("/product/edit/{id}")
     public String editProduct(@PathVariable("id") long productId, @ModelAttribute("productForm") Product productForm, BindingResult bindingResult){
+        productValidator.validate(productForm, bindingResult);
+
         if (bindingResult.hasErrors()) {
             logger.error(String.valueOf(bindingResult.getFieldError()));
             return "error";

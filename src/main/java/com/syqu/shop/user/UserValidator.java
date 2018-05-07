@@ -25,8 +25,8 @@ public class UserValidator implements Validator {
         User user = (User) o;
 
         //Username and password can't me empty or contain whitespace
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "register.error.not_empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "register.error.not_empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "error.not_empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "error.not_empty");
 
         // Username must have from 4 characters to 32
         if (user.getUsername().length() < 4) {
