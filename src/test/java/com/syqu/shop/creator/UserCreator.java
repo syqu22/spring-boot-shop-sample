@@ -3,7 +3,6 @@ package com.syqu.shop.creator;
 import com.syqu.shop.user.User;
 
 import java.math.BigDecimal;
-import java.util.Random;
 
 public class UserCreator {
 
@@ -15,7 +14,7 @@ public class UserCreator {
         testObject.setPasswordConfirm("longpassword123");
         testObject.setFirstName("Test");
         testObject.setLastName("Test");
-        testObject.setAge(new Random(100).nextInt());
+        testObject.setAge(23);
         testObject.setEmail("randomemail@gmail.test");
         testObject.setGender("Male");
         testObject.setBalance(new BigDecimal(100));

@@ -1,92 +1,101 @@
 package com.syqu.shop.service;
 
-import com.syqu.shop.Application;
 import com.syqu.shop.creator.UserCreator;
 import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserRepository;
 import com.syqu.shop.user.UserService;
-import com.syqu.shop.user.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest
 public class UserServiceTests {
 
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    BCryptPasswordEncoder passwordEncoder;
+    @MockBean
+    private UserService userService;
 
     @Test
-    public void checkIfUserServiceIsNotNull(){
-        userService.save(UserCreator.createTestUser());
-        assertThat(UserService.class).isNotNull();
-        assertThat(UserServiceImpl.class).isNotNull();
-    }
+    public void saveUserTests(){
+        initMocks(this);
 
-    @Test
-    public void whenFindByIdThenReturnsUser() {
-        User user = userService.findById(7);
-
-        assertThat(user.getId()).isEqualTo(7);
-    }
-
-    @Test
-    public void whenFindByUsernameThenReturnsUser() {
-        User user = userService.findByUsername("Test");
-
-        assertThat(user.getUsername()).isEqualTo("Test");
-    }
-
-    @Test
-    public void whenFindByEmailThenReturnsUser() {
-        User user = userService.findByEmail("randomemail@gmail.test");
-
-        assertThat(user.getEmail()).isEqualTo("randomemail@gmail.test");
-    }
-
-    @Test
-    public void checkIfSaveUserIsNotNull(){
-        User user = userService.findByUsername("Test");
-
-        assertThat(userService.findById(user.getId())).isNotNull();
-        assertThat(userService.findByUsername(user.getUsername())).isNotNull();
-        assertThat(userService.findByEmail(user.getEmail())).isNotNull();
-    }
-
-    @Test
-    public void checkIfSavedUserHaveTheSameParameters(){
-        User user = userService.findByUsername("Test");
-
-        assertThat(user.getId()).isEqualTo(7);
-        assertThat(user.getUsername()).isEqualTo("Test");
-        assertThat(user.getEmail()).isEqualTo("randomemail@gmail.test");
-        assertThat(user.getFirstName()).isEqualTo("Test");
-        assertThat(user.getLastName()).isEqualTo("Test");
-        assertThat(user.getGender()).isEqualTo("Male");
-        assertThat(user.getBalance()).isEqualTo(new BigDecimal(100));
-        assertThat(user.getCity()).isEqualTo("Warsaw");
-    }
-
-    @Test
-    public void checkIfSavedUserRawPasswordMatchesTheEncodedPassword(){
         User user = UserCreator.createTestUser();
-        String rawPassword = user.getPassword();
         userService.save(user);
+        when(userService.findById(user.getId())).thenReturn(user);
+        User found = userService.findById(user.getId());
 
-        assertThat(passwordEncoder.matches(rawPassword, user.getPassword())).isTrue();
+        assertThat(found).isNotNull();
+        assertThat(found.getUsername()).isEqualTo(user.getUsername());
+        assertThat(found.getEmail()).isEqualTo(user.getEmail());
+        assertThat(found.getAge()).isEqualTo(user.getAge());
+        assertThat(found.getGender()).isEqualTo(user.getGender());
     }
+
+    @Test
+    public void whenFindByIdThenReturnUser() {
+        when(userService.findById(100L)).thenReturn(UserCreator.createTestUser());
+        User found = userService.findById(100L);
+
+        assertThat(found).isNotNull();
+        assertThat(found.getUsername()).isEqualTo("Test");
+        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
+        assertThat(found.getAge()).isEqualTo(23);
+        assertThat(found.getGender()).isEqualTo("Male");
+    }
+
+    @Test
+    public void whenFindByUsernameThenReturnUser() {
+        initMocks(this);
+
+        when(userService.findByUsername("Test")).thenReturn(UserCreator.createTestUser());
+        User found = userService.findByUsername("Test");
+
+        assertThat(found).isNotNull();
+        assertThat(found.getUsername()).isEqualTo("Test");
+        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
+        assertThat(found.getAge()).isEqualTo(23);
+        assertThat(found.getGender()).isEqualTo("Male");
+    }
+
+    @Test
+    public void whenFindByEmailThenReturnUser() {
+        initMocks(this);
+
+        when(userService.findByEmail("randomemail@gmail.test")).thenReturn(UserCreator.createTestUser());
+        User found = userService.findByEmail("randomemail@gmail.test");
+
+        assertThat(found).isNotNull();
+        assertThat(found.getUsername()).isEqualTo("Test");
+        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
+        assertThat(found.getAge()).isEqualTo(23);
+        assertThat(found.getGender()).isEqualTo("Male");
+    }
+
+    @Test
+    public void whenFindByIdAndNoUserThenReturnNull(){
+        User found = userService.findById(25L);
+
+        assertThat(found).isNull();
+    }
+
+    @Test
+    public void whenFindByUsernameAndNoUserThenReturnNull(){
+        User found = userService.findByUsername("Tests");
+
+        assertThat(found).isNull();
+    }
+
+    @Test
+    public void whenFindByEmailAndNoUserThenReturnNull(){
+        User found = userService.findByEmail("example@donut.org");
+
+        assertThat(found).isNull();
+    }
+
+    //TODO Add User Login
 }
