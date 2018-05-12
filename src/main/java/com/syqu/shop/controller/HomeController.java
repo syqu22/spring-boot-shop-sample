@@ -20,9 +20,9 @@ public class HomeController {
 
     @GetMapping(value = {"/","/index","/home"})
     public String home(Model model){
-        List<Product>products = getAllProducts();
+        model.addAttribute("products", getAllProducts());
+        model.addAttribute("productsCount", productsCount());
 
-        model.addAttribute("products",products);
         return "home";
     }
 
@@ -38,5 +38,9 @@ public class HomeController {
 
     private List<Product> getAllProducts(){
         return productService.findAllByOrderByIdAsc();
+    }
+
+    private long productsCount(){
+        return productService.count();
     }
 }

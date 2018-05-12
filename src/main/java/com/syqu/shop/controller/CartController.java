@@ -1,7 +1,8 @@
 package com.syqu.shop.controller;
 
 import com.syqu.shop.cart.ShoppingCartService;
-import com.syqu.shop.user.User;
+import com.syqu.shop.product.Product;
+import com.syqu.shop.product.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +15,39 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class CartController {
     private static final Logger logger = LoggerFactory.getLogger(CartController.class);
     private final ShoppingCartService shoppingCartService;
+    private final ProductService productService;
 
     @Autowired
-    public CartController(ShoppingCartService shoppingCartService) {
+    public CartController(ShoppingCartService shoppingCartService, ProductService productService) {
         this.shoppingCartService = shoppingCartService;
+        this.productService = productService;
     }
 
     @GetMapping("/cart")
     public String cart(Model model){
+        model.addAttribute("products", shoppingCartService.productsInCart());
+        model.addAttribute("totalPrice", shoppingCartService.totalPrice());
 
         return "cart";
     }
 
     @GetMapping("/cart/add/{id}")
-    public String addProductToCart(@PathVariable("id") long id, User user){
-        //shoppingCartService.addProduct(user.getId(),id);
-        logger.info("Product with id: " + id + " added to user with id: " + user.getId() + " cart.");
+    public String addProductToCart(@PathVariable("id") long id){
+        Product product = productService.findById(id);
+        if (product != null){
+            shoppingCartService.addProduct(product.getId());
+            logger.debug(String.format("Product with id: %s added to shopping cart.", id));
+        }
+        return "cart";
+    }
 
-        return "redirect:/home";
+    @GetMapping("/cart/remove/{id}")
+    public String removeProductFromCart(@PathVariable("id") long id){
+        Product product = productService.findById(id);
+        if (product != null){
+            shoppingCartService.removeProduct(id);
+            logger.debug(String.format("Product with id: %s removed from shopping cart.", id));
+        }
+        return "cart";
     }
 }

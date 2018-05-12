@@ -23,7 +23,7 @@ public class ControllersTests {
     @Autowired
     ProductController productController;
     @Autowired
-    CartController cartController;
+    CartControllerMvcTests cartController;
 
     @Test
     public void checkIfHomeControllerNotNull() {

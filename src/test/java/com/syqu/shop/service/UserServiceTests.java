@@ -21,9 +21,14 @@ public class UserServiceTests {
     private UserService userService;
 
     @Test
-    public void saveUserTests(){
+    public void checkIfUserServiceIsNotNull(){
         initMocks(this);
 
+        assertThat(userService).isNotNull();
+    }
+
+    @Test
+    public void saveUserTests(){
         User user = UserCreator.createTestUser();
         userService.save(user);
         when(userService.findById(user.getId())).thenReturn(user);

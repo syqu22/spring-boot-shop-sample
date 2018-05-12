@@ -1,7 +1,5 @@
 package com.syqu.shop.user;
 
-import com.syqu.shop.cart.ShoppingCart;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -55,9 +53,6 @@ public class User {
 
     @Column(name = "balance")
     private BigDecimal balance;
-
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    private ShoppingCart shoppingCart;
 
     public long getId() {
         return id;
@@ -146,14 +141,6 @@ public class User {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
-    }
-
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
     }
 
     @Override

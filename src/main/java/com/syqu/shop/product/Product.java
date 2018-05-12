@@ -1,13 +1,11 @@
 package com.syqu.shop.product;
 
-import com.syqu.shop.cart.ShoppingCart;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -34,9 +32,6 @@ public class Product {
     @Column(name = "price")
     @NotNull
     private BigDecimal price;
-
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
-    private Set<ShoppingCart> carts;
 
     public long getId() {
         return id;
@@ -76,14 +71,6 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public Set<ShoppingCart> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(Set<ShoppingCart> carts) {
-        this.carts = carts;
     }
 
     @Override

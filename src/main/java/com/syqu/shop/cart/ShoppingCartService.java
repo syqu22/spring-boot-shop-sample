@@ -1,12 +1,17 @@
 package com.syqu.shop.cart;
 
+import com.syqu.shop.product.Product;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.Map;
 
 @Service
 public interface ShoppingCartService {
-    void saveCart(ShoppingCart shoppingCart);
-    void addProduct(long id, long productId);
-    void removeProduct(long id, long productId);
-    void clearCart(long id);
-    ShoppingCart findById(long id);
+    void addProduct(long productId);
+    void removeProduct(long productId);
+    void clearProducts();
+    Map<Product, Integer> productsInCart();
+    BigDecimal totalPrice();
+    void cartCheckout();
 }

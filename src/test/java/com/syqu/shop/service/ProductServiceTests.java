@@ -25,9 +25,13 @@ public class ProductServiceTests {
     private ProductService productService;
 
     @Test
-    public void saveProductTests(){
+    public void checkIfProductServiceIsNotNull(){
         initMocks(this);
 
+        assertThat(productService).isNotNull();
+    }
+    @Test
+    public void saveProductTests(){
         Product product = ProductCreator.createTestProduct();
         productService.save(product);
         when(productService.findById(product.getId())).thenReturn(product);
