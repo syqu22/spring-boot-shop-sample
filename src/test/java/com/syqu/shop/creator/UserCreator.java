@@ -5,20 +5,29 @@ import com.syqu.shop.user.User;
 import java.math.BigDecimal;
 
 public class UserCreator {
+    public static final String USERNAME = "Test";
+    public static final String PASSWORD = "longpassword123";
+    public static final String FIRST_NAME = "Test";
+    public static final String LAST_NAME = "Test";
+    public static final int AGE = 23;
+    public static final String EMAIL = "randomemail@gmail.test";
+    public static final String GENDER = "Male";
+    public static final BigDecimal BALANCE = new BigDecimal(1000);
+    public static final String CITY = "Warsaw";
 
     public static User createTestUser() {
         User testObject = new User();
 
-        testObject.setUsername("Test");
-        testObject.setPassword("longpassword123");
-        testObject.setPasswordConfirm("longpassword123");
-        testObject.setFirstName("Test");
-        testObject.setLastName("Test");
-        testObject.setAge(23);
-        testObject.setEmail("randomemail@gmail.test");
-        testObject.setGender("Male");
-        testObject.setBalance(new BigDecimal(100));
-        testObject.setCity("Warsaw");
+        testObject.setUsername(USERNAME);
+        testObject.setPassword(PASSWORD);
+        testObject.setPasswordConfirm(PASSWORD);
+        testObject.setFirstName(FIRST_NAME);
+        testObject.setLastName(LAST_NAME);
+        testObject.setAge(AGE);
+        testObject.setEmail(EMAIL);
+        testObject.setGender(GENDER);
+        testObject.setBalance(BALANCE);
+        testObject.setCity(CITY);
 
         return testObject;
     }

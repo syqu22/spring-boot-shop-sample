@@ -53,30 +53,35 @@ public class LoadStartupData implements CommandLineRunner {
     }
 
     private void exampleProducts(){
+        final String NAME = "Example Name";
+        final String IMAGE_URL = "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7389458.jpg";
+        final String DESCRIPTION = "Example Description";
+        final BigDecimal PRICE = BigDecimal.valueOf(22);
+
         Product product1 = new Product();
         Product product2 = new Product();
         Product product3 = new Product();
         Product product4 = new Product();
 
-        product1.setName("Example Name");
-        product1.setImageUrl("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7389458.jpg");
-        product1.setDescription("Example Description");
-        product1.setPrice(new BigDecimal(22));
+        product1.setName(NAME);
+        product1.setImageUrl(IMAGE_URL);
+        product1.setDescription(DESCRIPTION);
+        product1.setPrice(PRICE);
 
-        product2.setName("Example Name");
-        product2.setImageUrl("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7389458.jpg");
-        product2.setDescription("Example Description");
-        product2.setPrice(new BigDecimal(22));
+        product2.setName(NAME);
+        product2.setImageUrl(IMAGE_URL);
+        product2.setDescription(DESCRIPTION);
+        product2.setPrice(PRICE);
 
-        product3.setName("Example Name");
-        product3.setImageUrl("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7389458.jpg");
-        product3.setDescription("Example Description");
-        product3.setPrice(new BigDecimal(22));
+        product3.setName(NAME);
+        product3.setImageUrl(IMAGE_URL);
+        product3.setDescription(DESCRIPTION);
+        product3.setPrice(PRICE);
 
-        product4.setName("Example Name");
-        product4.setImageUrl("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7389458.jpg");
-        product4.setDescription("Example Description");
-        product4.setPrice(new BigDecimal(22));
+        product4.setName(NAME);
+        product4.setImageUrl(IMAGE_URL);
+        product4.setDescription(DESCRIPTION);
+        product4.setPrice(PRICE);
 
         productService.save(product1);
         productService.save(product2);

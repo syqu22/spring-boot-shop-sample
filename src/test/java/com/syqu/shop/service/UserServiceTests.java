@@ -42,38 +42,37 @@ public class UserServiceTests {
         User found = userService.findById(100L);
 
         assertThat(found).isNotNull();
-        assertThat(found.getUsername()).isEqualTo("Test");
-        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
-        assertThat(found.getAge()).isEqualTo(23);
-        assertThat(found.getGender()).isEqualTo("Male");
+        assertThat(found.getUsername()).isEqualTo(UserCreator.USERNAME);
+        assertThat(found.getEmail()).isEqualTo(UserCreator.EMAIL);
+        assertThat(found.getAge()).isEqualTo(UserCreator.AGE);
+        assertThat(found.getGender()).isEqualTo(UserCreator.GENDER);
     }
 
     @Test
     public void whenFindByUsernameThenReturnUser() {
         initMocks(this);
 
-        when(userService.findByUsername("Test")).thenReturn(UserCreator.createTestUser());
-        User found = userService.findByUsername("Test");
+        when(userService.findByUsername(UserCreator.USERNAME)).thenReturn(UserCreator.createTestUser());
+        User found = userService.findByUsername(UserCreator.USERNAME);
 
-        assertThat(found).isNotNull();
-        assertThat(found.getUsername()).isEqualTo("Test");
-        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
-        assertThat(found.getAge()).isEqualTo(23);
-        assertThat(found.getGender()).isEqualTo("Male");
+        assertThat(found.getUsername()).isEqualTo(UserCreator.USERNAME);
+        assertThat(found.getEmail()).isEqualTo(UserCreator.EMAIL);
+        assertThat(found.getAge()).isEqualTo(UserCreator.AGE);
+        assertThat(found.getGender()).isEqualTo(UserCreator.GENDER);
     }
 
     @Test
     public void whenFindByEmailThenReturnUser() {
         initMocks(this);
 
-        when(userService.findByEmail("randomemail@gmail.test")).thenReturn(UserCreator.createTestUser());
-        User found = userService.findByEmail("randomemail@gmail.test");
+        when(userService.findByEmail(UserCreator.EMAIL)).thenReturn(UserCreator.createTestUser());
+        User found = userService.findByEmail(UserCreator.EMAIL);
 
         assertThat(found).isNotNull();
-        assertThat(found.getUsername()).isEqualTo("Test");
-        assertThat(found.getEmail()).isEqualTo("randomemail@gmail.test");
-        assertThat(found.getAge()).isEqualTo(23);
-        assertThat(found.getGender()).isEqualTo("Male");
+        assertThat(found.getUsername()).isEqualTo(UserCreator.USERNAME);
+        assertThat(found.getEmail()).isEqualTo(UserCreator.EMAIL);
+        assertThat(found.getAge()).isEqualTo(UserCreator.AGE);
+        assertThat(found.getGender()).isEqualTo(UserCreator.GENDER);
     }
 
     @Test
