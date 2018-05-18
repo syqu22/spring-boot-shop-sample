@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
-public class LoadStartupData implements CommandLineRunner {
+public class StartupData implements CommandLineRunner {
     private final UserService userService;
     private final ProductService productService;
 
     @Autowired
-    public LoadStartupData(UserService userService, ProductService productService) {
+    public StartupData(UserService userService, ProductService productService) {
         this.userService = userService;
         this.productService = productService;
     }

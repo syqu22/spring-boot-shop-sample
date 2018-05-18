@@ -38,7 +38,7 @@ public class CartController {
             shoppingCartService.addProduct(product.getId());
             logger.debug(String.format("Product with id: %s added to shopping cart.", id));
         }
-        return "cart";
+        return "redirect:/home";
     }
 
     @GetMapping("/cart/remove/{id}")
@@ -48,6 +48,20 @@ public class CartController {
             shoppingCartService.removeProduct(id);
             logger.debug(String.format("Product with id: %s removed from shopping cart.", id));
         }
+        return "redirect:/cart";
+    }
+
+    @GetMapping("/cart/clear")
+    public String clearProductsInCart(){
+        shoppingCartService.clearProducts();
+
+        return "redirect:/cart";
+    }
+
+    @GetMapping("/cart/checkout")
+    public String cartCheckout(){
+        //TODO checkout
+
         return "cart";
     }
 }

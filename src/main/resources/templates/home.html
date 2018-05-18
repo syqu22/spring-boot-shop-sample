@@ -29,16 +29,15 @@
                     </div>
                     <div class="card-footer">
                         <p th:text="${product.getPrice()}"></p>
-                        <input type="submit" th:onclick="${'addProduct(' + product.getId() + ');'}" class="btn btn-lg btn-outline-info btn-block" th:value="#{product.add}" />
+                        <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-lg btn-outline-info btn-block" th:text="#{product.add}" ></a>
                     </div>
                 </div>
     </div>
         <div>
-            TOTAL PRODUCTS: <span th:text="${productsCount}"></span>
+            <p th:text="#{product.count}"></p><span th:text="${productsCount}"></span>
         </div>
     </div>
 
-    <script type="text/javascript" th:src="@{/js/addproduct.js}"></script>
     <div th:replace="fragments/footer :: footer"></div>
 
 </body>

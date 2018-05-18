@@ -10,7 +10,10 @@
 
 <div class="container">
     <div class="starter-template">
-
+        <div th:each="product : ${products}">
+            <p th:text="${product.getKey().getName()}"></p>
+            <p th:text="${product.getValue().toString()}"></p>
+        </div>
     </div>
 </div>
 
