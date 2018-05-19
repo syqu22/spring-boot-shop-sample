@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class ControllersTests {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ControllersTests {
     @Autowired
     ProductController productController;
     @Autowired
-    CartControllerMvcTests cartController;
+    CartController cartController;
 
     @Test
     public void checkIfHomeControllerNotNull() {
