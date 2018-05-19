@@ -12,7 +12,7 @@
         <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
         <a th:href="@{product/new}"><i class="fas fa-plus fa-2x"></i></a>
         </button>
-    <div class="card-deck" th:if="${!products.isEmpty()}" >
+    <div class="card-deck ml-5 my-3" th:if="${!products.isEmpty()}" >
                 <div class="card" th:each="product : ${products}">
                     <div sec:authorize="hasRole('ROLE_ADMIN')" class="admin">
                         <button class="btn">

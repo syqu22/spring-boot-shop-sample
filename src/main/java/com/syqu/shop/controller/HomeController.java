@@ -31,11 +31,6 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/help")
-    public String help(){
-        return "help";
-    }
-
     private List<Product> getAllProducts(){
         return productService.findAllByOrderByIdAsc();
     }

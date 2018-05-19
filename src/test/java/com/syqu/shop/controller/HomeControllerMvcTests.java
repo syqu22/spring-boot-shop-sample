@@ -59,10 +59,4 @@ public class HomeControllerMvcTests {
         this.mockMvc.perform(get("/about")).andExpect(status().isOk())
                 .andExpect(view().name("about")).andDo(print());
     }
-    @Test
-
-    public void homeControllerStatus5() throws Exception{
-        this.mockMvc.perform(get("/help")).andExpect(status().isOk())
-                .andExpect(view().name("help")).andDo(print());
-    }
 }

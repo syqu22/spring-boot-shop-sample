@@ -12,9 +12,6 @@
                 <span>
                     <a th:href="@{/about}" th:text="#{about.name}"></a>
                 </span>
-                <span>
-                    <a th:href="@{/help}" th:text="#{help.name}"></a>
-                </span>
                 <label>
                     <select class="custom-select" id="select-lang">
                         <option value="eng" th:selected="${#locale.getLanguage().toString() == 'en'}" th:text="#{footer.language.en}"></option>
