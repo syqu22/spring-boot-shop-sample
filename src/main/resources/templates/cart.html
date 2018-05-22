@@ -9,11 +9,31 @@
 <div th:replace="fragments/header :: header"></div>
 
 <div class="container">
-    <div class="starter-template">
-        <div th:each="product : ${products}">
-            <p th:text="${product.getKey().getName()}"></p>
-            <p th:text="${product.getValue().toString()}"></p>
+    <div th:if="${!products.isEmpty()}" class="col-3">
+        <h2 th:text="#{cart.title}"></h2>
+        <div class="card" th:each="product : ${products.entrySet()}">
+            <h3 th:text="${product.getKey().getName()}"></h3>
+            <h4 th:text="${product.getValue()}"></h4>
+            <h4 th:text="${product.getKey().getPrice()}"></h4>
+            <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}" class="col-md-1">
+                <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
+            </a>
         </div>
+    </div>
+
+    <div th:if="${products.isEmpty()}" class="col-3">
+        <h2 th:text="#{cart.empty}"></h2>
+    </div>
+
+    <a th:href="@{'/cart/clear/'}" class="col-md-1">
+        <button type="button" class="btn btn-info" th:text="#{cart.clear}"></button>
+    </a>
+
+    <div class="row">
+        <h3 th:text="#{cart.total}"></h3><h2 th:text="${totalPrice}"><b></b></h2>
+        <a th:href="@{'/cart/checkout'}" class="col-md-1">
+            <button type="button" class="btn btn-success" th:text="#{cart.checkout}"></button>
+        </a>
     </div>
 </div>
 

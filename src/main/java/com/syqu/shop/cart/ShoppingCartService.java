@@ -8,8 +8,8 @@ import java.util.Map;
 
 @Service
 public interface ShoppingCartService {
-    void addProduct(long productId);
-    void removeProduct(long productId);
+    void addProduct(Product product);
+    void removeProduct(Product product);
     void clearProducts();
     Map<Product, Integer> productsInCart();
     BigDecimal totalPrice();

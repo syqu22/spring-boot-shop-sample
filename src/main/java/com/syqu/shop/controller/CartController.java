@@ -35,7 +35,7 @@ public class CartController {
     public String addProductToCart(@PathVariable("id") long id){
         Product product = productService.findById(id);
         if (product != null){
-            shoppingCartService.addProduct(product.getId());
+            shoppingCartService.addProduct(product);
             logger.debug(String.format("Product with id: %s added to shopping cart.", id));
         }
         return "redirect:/home";
@@ -45,7 +45,7 @@ public class CartController {
     public String removeProductFromCart(@PathVariable("id") long id){
         Product product = productService.findById(id);
         if (product != null){
-            shoppingCartService.removeProduct(id);
+            shoppingCartService.removeProduct(product);
             logger.debug(String.format("Product with id: %s removed from shopping cart.", id));
         }
         return "redirect:/cart";
