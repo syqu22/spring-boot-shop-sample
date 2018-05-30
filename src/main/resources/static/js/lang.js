@@ -1,7 +1,8 @@
-function changeLanguage(lang){
-    const currentUrl = window.location.href;
-    window.history.pushState(null, null, window.location.pathname);
-    window.location.replace(currentUrl + "?lang=" + lang);
+function changeLanguage(lang) {
+    let currentUrl = window.location.toString();
+    let cleanUrl = currentUrl.split("?")[0];
+
+    window.history.replace({}, window.title, cleanUrl + "?lang=" + lang);
 }
 
 $("#select-lang").change(function(){

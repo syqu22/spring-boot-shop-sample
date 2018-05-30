@@ -100,6 +100,4 @@ public class UserServiceTests {
 
         assertThat(found).isNull();
     }
-
-    //TODO Add User Login
 }

@@ -32,7 +32,7 @@ public class User {
 
     @NotEmpty
     @NotNull
-    private String passwordConfirm; //TODO REMOVE PASSWORD CONFIRM
+    private String passwordConfirm;
 
     @Column(name = "first_name")
     private String firstName;

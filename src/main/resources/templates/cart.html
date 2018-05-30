@@ -18,6 +18,7 @@
             <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}" class="col-md-1">
                 <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
             </a>
+            <br>
         </div>
     </div>
 
@@ -25,12 +26,14 @@
         <h2 th:text="#{cart.empty}"></h2>
     </div>
 
+    <br>
     <a th:href="@{'/cart/clear/'}" class="col-md-1">
         <button type="button" class="btn btn-info" th:text="#{cart.clear}"></button>
     </a>
 
+    <br>
     <div class="row">
-        <h3 th:text="#{cart.total}"></h3><h2 th:text="${totalPrice}"><b></b></h2>
+        <h3 th:text="#{cart.total + ' ' + ${totalPrice}"></h3>">
         <a th:href="@{'/cart/checkout'}" class="col-md-1">
             <button type="button" class="btn btn-success" th:text="#{cart.checkout}"></button>
         </a>

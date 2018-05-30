@@ -60,8 +60,8 @@ public class CartController {
 
     @GetMapping("/cart/checkout")
     public String cartCheckout(){
-        //TODO checkout
+        shoppingCartService.cartCheckout();
 
-        return "cart";
+        return "redirect:/cart";
     }
 }

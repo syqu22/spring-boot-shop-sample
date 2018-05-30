@@ -9,9 +9,14 @@
     <div th:replace="fragments/header :: header"></div>
 
     <div class="container">
-        <div class="starter-template">
+        <h2 th:text="#{user.title}"></h2>
+        <br>
 
-        </div>
+        <h3 th:text="#{user.firstname} + ': ' + ${user.getFirstName()}"></h3>
+        <h3 th:text="#{user.lastname} + ': ' + ${user.getLastName()}"></h3>
+        <h3 th:text="#{user.age} + ': ' + ${user.getAge()}"></h3>
+        <h3 th:text="#{user.city} + ': ' + ${user.getCity()}"></h3>
+        <h3 th:text="#{user.gender} + ': ' + ${user.getGender()}"></h3>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>
