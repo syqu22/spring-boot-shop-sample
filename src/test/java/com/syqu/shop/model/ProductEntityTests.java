@@ -90,7 +90,7 @@ public class ProductEntityTests {
         this.thrown.expectMessage("org.hibernate.validator.constraints.URL.message");
 
         Product testObject = ProductCreator.createTestProduct();
-        testObject.setImageUrl("htt://test");
+        testObject.setImage_url("htt://test");
 
         entityManager.persistAndFlush(testObject);
     }

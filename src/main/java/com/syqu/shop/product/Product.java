@@ -2,13 +2,11 @@ package com.syqu.shop.product;
 
 import com.syqu.shop.category.Category;
 import lombok.Data;
-import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Data
 @Entity
@@ -35,7 +33,7 @@ public class Product {
     private String description;
 
     @Column(name = "image")
-    @URL private String image_url;
+    private String image_url;
 
     @Column(name = "price")
     @NotNull
