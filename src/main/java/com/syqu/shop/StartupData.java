@@ -1,9 +1,9 @@
 package com.syqu.shop;
 
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductService;
-import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserService;
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.service.ProductService;
+import com.syqu.shop.domain.User;
+import com.syqu.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

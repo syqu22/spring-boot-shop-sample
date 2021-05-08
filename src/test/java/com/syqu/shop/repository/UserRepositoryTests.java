@@ -1,8 +1,7 @@
 package com.syqu.shop.repository;
 
 import com.syqu.shop.creator.UserCreator;
-import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserRepository;
+import com.syqu.shop.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

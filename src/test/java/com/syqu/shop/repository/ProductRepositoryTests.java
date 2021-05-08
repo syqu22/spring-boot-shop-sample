@@ -1,8 +1,7 @@
 package com.syqu.shop.repository;
 
 import com.syqu.shop.creator.ProductCreator;
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductRepository;
+import com.syqu.shop.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

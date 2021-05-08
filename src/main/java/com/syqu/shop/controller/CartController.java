@@ -1,8 +1,8 @@
 package com.syqu.shop.controller;
 
-import com.syqu.shop.cart.ShoppingCartService;
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductService;
+import com.syqu.shop.service.ShoppingCartService;
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

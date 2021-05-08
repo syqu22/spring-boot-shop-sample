@@ -1,6 +1,6 @@
-package com.syqu.shop.cart;
+package com.syqu.shop.service;
 
-import com.syqu.shop.product.Product;
+import com.syqu.shop.domain.Product;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

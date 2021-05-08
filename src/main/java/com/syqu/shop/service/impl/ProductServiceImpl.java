@@ -1,5 +1,8 @@
-package com.syqu.shop.product;
+package com.syqu.shop.service.impl;
 
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.repository.ProductRepository;
+import com.syqu.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,5 @@
-package com.syqu.shop.category;
+package com.syqu.shop.domain;
 
-import com.syqu.shop.product.Product;
 import lombok.Data;
 
 import javax.persistence.*;

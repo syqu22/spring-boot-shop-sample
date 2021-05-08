@@ -1,8 +1,7 @@
 package com.syqu.shop.service;
 
 import com.syqu.shop.creator.UserCreator;
-import com.syqu.shop.user.User;
-import com.syqu.shop.user.UserService;
+import com.syqu.shop.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

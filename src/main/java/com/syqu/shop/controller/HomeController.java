@@ -1,7 +1,7 @@
 package com.syqu.shop.controller;
 
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductService;
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
