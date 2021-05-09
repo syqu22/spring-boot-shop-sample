@@ -1,6 +1,6 @@
 package com.syqu.shop.creator;
 
-import com.syqu.shop.product.Product;
+import com.syqu.shop.domain.Product;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class ProductCreator {
         testProduct.setName(NAME);
         testProduct.setDescription(DESCRIPTION);
         testProduct.setPrice(PRICE);
-        testProduct.setImageUrl(IMAGE_URL);
+        testProduct.setImage_url(IMAGE_URL);
 
         return testProduct;
     }

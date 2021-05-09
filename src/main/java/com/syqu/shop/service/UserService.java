@@ -1,4 +1,6 @@
-package com.syqu.shop.user;
+package com.syqu.shop.service;
+
+import com.syqu.shop.domain.User;
 
 public interface UserService {
     void save(User user);

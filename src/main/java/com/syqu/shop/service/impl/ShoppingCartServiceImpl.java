@@ -1,6 +1,7 @@
-package com.syqu.shop.cart;
+package com.syqu.shop.service.impl;
 
-import com.syqu.shop.product.Product;
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.service.ShoppingCartService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ www.github.com/reljicd/spring-boot-shopping-cart
 @Service
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Transactional
-public class ShoppingCartServiceImpl implements ShoppingCartService{
+public class ShoppingCartServiceImpl implements ShoppingCartService {
     private Map<Product, Integer> cart = new LinkedHashMap<>();
 
     @Override

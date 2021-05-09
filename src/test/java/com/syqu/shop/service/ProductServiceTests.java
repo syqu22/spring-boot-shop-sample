@@ -1,8 +1,7 @@
 package com.syqu.shop.service;
 
 import com.syqu.shop.creator.ProductCreator;
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductService;
+import com.syqu.shop.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,7 +40,7 @@ public class ProductServiceTests {
         assertThat(found.getName()).isEqualTo(product.getName());
         assertThat(found.getDescription()).isEqualTo(product.getDescription());
         assertThat(found.getPrice()).isEqualTo(product.getPrice());
-        assertThat(found.getImageUrl()).isEqualTo(product.getImageUrl());
+        assertThat(found.getImage_url()).isEqualTo(product.getImage_url());
     }
 
     @Test
@@ -84,7 +83,7 @@ public class ProductServiceTests {
         assertThat(found.getName()).isEqualTo(ProductCreator.NAME);
         assertThat(found.getDescription()).isEqualTo(ProductCreator.DESCRIPTION);
         assertThat(found.getPrice()).isEqualTo(ProductCreator.PRICE);
-        assertThat(found.getImageUrl()).isEqualTo(ProductCreator.IMAGE_URL);
+        assertThat(found.getImage_url()).isEqualTo(ProductCreator.IMAGE_URL);
     }
 
     @Test
@@ -98,7 +97,7 @@ public class ProductServiceTests {
             assertThat(product.getName()).isEqualTo(ProductCreator.NAME);
             assertThat(product.getDescription()).isEqualTo(ProductCreator.DESCRIPTION);
             assertThat(product.getPrice()).isEqualTo(ProductCreator.PRICE);
-            assertThat(product.getImageUrl()).isEqualTo(ProductCreator.IMAGE_URL);
+            assertThat(product.getImage_url()).isEqualTo(ProductCreator.IMAGE_URL);
         }
     }
 

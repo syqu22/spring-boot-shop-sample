@@ -1,8 +1,7 @@
 package com.syqu.shop.service;
 
-import com.syqu.shop.cart.ShoppingCartService;
 import com.syqu.shop.creator.ProductCreator;
-import com.syqu.shop.product.Product;
+import com.syqu.shop.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

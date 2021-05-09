@@ -1,7 +1,7 @@
 package com.syqu.shop.controller;
 
-import com.syqu.shop.cart.ShoppingCartService;
-import com.syqu.shop.product.ProductService;
+import com.syqu.shop.service.ShoppingCartService;
+import com.syqu.shop.service.ProductService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

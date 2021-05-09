@@ -1,4 +1,6 @@
-package com.syqu.shop.product;
+package com.syqu.shop.service;
+
+import com.syqu.shop.domain.Product;
 
 import java.util.List;
 

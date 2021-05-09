@@ -1,8 +1,7 @@
 package com.syqu.shop.repository;
 
 import com.syqu.shop.creator.ProductCreator;
-import com.syqu.shop.product.Product;
-import com.syqu.shop.product.ProductRepository;
+import com.syqu.shop.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ public class ProductRepositoryTests {
         assertThat(found.getName()).isEqualTo(testObject.getName());
         assertThat(found.getDescription()).isEqualTo(testObject.getDescription());
         assertThat(found.getPrice()).isEqualTo(testObject.getPrice());
-        assertThat(found.getImageUrl()).isEqualTo(testObject.getImageUrl());
+        assertThat(found.getImage_url()).isEqualTo(testObject.getImage_url());
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.syqu.shop.model;
 
 import com.syqu.shop.creator.ProductCreator;
-import com.syqu.shop.product.Product;
+import com.syqu.shop.domain.Product;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -90,7 +90,7 @@ public class ProductEntityTests {
         this.thrown.expectMessage("org.hibernate.validator.constraints.URL.message");
 
         Product testObject = ProductCreator.createTestProduct();
-        testObject.setImageUrl("htt://test");
+        testObject.setImage_url("htt://test");
 
         entityManager.persistAndFlush(testObject);
     }

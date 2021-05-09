@@ -1,5 +1,8 @@
-package com.syqu.shop.product;
+package com.syqu.shop.service.impl;
 
+import com.syqu.shop.domain.Product;
+import com.syqu.shop.repository.ProductRepository;
+import com.syqu.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
     public void edit(long id, Product newProduct) {
         Product found = productRepository.getOne(id);
         found.setName(newProduct.getName());
-        found.setImageUrl(newProduct.getImageUrl());
+        found.setImage_url(newProduct.getImage_url());
         found.setDescription(newProduct.getDescription());
         found.setPrice(newProduct.getPrice());
         save(newProduct);

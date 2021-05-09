@@ -1,6 +1,6 @@
 package com.syqu.shop.creator;
 
-import com.syqu.shop.user.User;
+import com.syqu.shop.domain.User;
 
 import java.math.BigDecimal;
 

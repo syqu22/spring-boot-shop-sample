@@ -1,7 +1,7 @@
 package com.syqu.shop.config;
 
-import com.syqu.shop.user.UserDetailsServiceImpl;
-import com.syqu.shop.user.UserRepository;
+import com.syqu.shop.service.impl.UserDetailsServiceImpl;
+import com.syqu.shop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

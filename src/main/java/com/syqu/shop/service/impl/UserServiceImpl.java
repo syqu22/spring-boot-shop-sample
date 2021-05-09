@@ -1,5 +1,8 @@
-package com.syqu.shop.user;
+package com.syqu.shop.service.impl;
 
+import com.syqu.shop.service.UserService;
+import com.syqu.shop.domain.User;
+import com.syqu.shop.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
