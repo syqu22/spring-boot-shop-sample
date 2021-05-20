@@ -32,7 +32,7 @@ public class Product {
     private String description;
 
     @Column(name = "image")
-    private String image_url;
+    private String imageUrl;
 
     @Column(name = "price")
     @NotNull
