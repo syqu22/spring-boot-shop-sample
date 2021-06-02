@@ -1,6 +1,8 @@
 package com.syqu.shop;
 
+import com.syqu.shop.domain.Category;
 import com.syqu.shop.domain.Product;
+import com.syqu.shop.repository.CategoryRepository;
 import com.syqu.shop.service.ProductService;
 import com.syqu.shop.domain.User;
 import com.syqu.shop.service.UserService;
@@ -14,17 +16,20 @@ import java.math.BigDecimal;
 public class StartupData implements CommandLineRunner {
     private final UserService userService;
     private final ProductService productService;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public StartupData(UserService userService, ProductService productService) {
+    public StartupData(UserService userService, ProductService productService, CategoryRepository categoryRepository) {
         this.userService = userService;
         this.productService = productService;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
     public void run(String... args) {
         adminAccount();
         userAccount();
+        category();
         exampleProducts();
     }
 
@@ -50,6 +55,18 @@ public class StartupData implements CommandLineRunner {
         admin.setEmail("admin@example.com");
 
         userService.save(admin);
+    }
+
+    private void category(){
+        Category category1 = new Category();
+        Category category2 = new Category();
+        category1.setId(1);
+        category1.setCategoryName("Adventure");
+        category2.setId(2);
+        category2.setCategoryName("Novel");
+
+        categoryRepository.save(category1);
+        categoryRepository.save(category2);
     }
 
     private void exampleProducts(){
