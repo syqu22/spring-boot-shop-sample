@@ -18,7 +18,7 @@ public class ProductCreator {
         testProduct.setName(NAME);
         testProduct.setDescription(DESCRIPTION);
         testProduct.setPrice(PRICE);
-        testProduct.setImage_url(IMAGE_URL);
+        testProduct.setImageUrl(IMAGE_URL);
 
         return testProduct;
     }
