@@ -20,6 +20,14 @@
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                     </div>
                     <div class="form-group">
+                        <label th:text="#{product.category}"></label>
+                        <select class="form-control input-lg" th:field="*{category.id}" name="category.id" autofocus="true">
+                            <option value="0">select</option>
+                            <option th:each="cat : ${categories}" th:value="${cat.id}"
+                                    th:text="${cat.categoryName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label th:text="#{product.desc}"></label>
                         <input type="text" th:field="*{description}" class="form-control input-lg" title="description" autofocus="false" />
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>

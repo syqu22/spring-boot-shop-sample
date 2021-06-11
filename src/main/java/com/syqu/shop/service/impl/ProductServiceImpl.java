@@ -48,6 +48,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findAllByCategoryId(long categoryId) {
+        return productRepository.findAllByCategoryId(categoryId);
+    }
+
+    @Override
     public long count() {
         return productRepository.count();
     }
