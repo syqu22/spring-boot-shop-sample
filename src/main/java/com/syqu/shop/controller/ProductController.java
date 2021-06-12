@@ -1,6 +1,7 @@
 package com.syqu.shop.controller;
 
 import com.syqu.shop.domain.Product;
+import com.syqu.shop.service.CategoryService;
 import com.syqu.shop.service.ProductService;
 import com.syqu.shop.validator.ProductValidator;
 import org.slf4j.Logger;
@@ -19,17 +20,20 @@ public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
     private final ProductValidator productValidator;
+    private final CategoryService categoryService;
 
     @Autowired
-    public ProductController(ProductService productService, ProductValidator productValidator) {
+    public ProductController(ProductService productService, ProductValidator productValidator, CategoryService categoryService) {
         this.productService = productService;
         this.productValidator = productValidator;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/product/new")
     public String newProduct(Model model) {
         model.addAttribute("productForm", new Product());
         model.addAttribute("method", "new");
+        model.addAttribute("categories", categoryService.findAll());
         return "product";
     }
 

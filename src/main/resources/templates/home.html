@@ -10,6 +10,13 @@
 
     <div class="container">
         <div class="row">
+            <nav class="side-menu">
+                <h3>Category</h3>
+                <ul>
+                    <li th:each="cat: ${categories}"><a th:href="@{/searchByCategory(categoryId=${cat.id})}" th:text="${cat.categoryName}"></a></li>
+                </ul>
+            </nav>
+
         <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
         <a th:href="@{product/new}"><i class="fas fa-plus fa-2x"></i></a>
         </button>
@@ -23,7 +30,7 @@
                             <a th:href="@{'product/edit/' + ${product.getId()}}" ><i class="fas fa-wrench"></i></a>
                         </button>
                     </div>
-                    <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
+                    <img class="card-img-top" th:if="${!product.getImage_url().isEmpty()}" th:src="${product.getImage_url()}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${product.getName()}"></h4>
                         <p class="card-text" th:text="${product.getDescription()}"></p>

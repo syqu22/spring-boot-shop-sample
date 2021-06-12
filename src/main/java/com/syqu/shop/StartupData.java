@@ -86,21 +86,25 @@ public class StartupData implements CommandLineRunner {
         product1.setName(NAME);
         product1.setImageUrl(IMAGE_URL);
         product1.setDescription(DESCRIPTION);
+        product1.setCategory(categoryRepository.findByCategoryName("Adventure"));
         product1.setPrice(PRICE);
 
         product2.setName(NAME);
         product2.setImageUrl(IMAGE_URL);
         product2.setDescription(DESCRIPTION);
+        product2.setCategory(categoryRepository.findByCategoryName("Adventure"));
         product2.setPrice(PRICE);
 
         product3.setName(NAME);
         product3.setImageUrl(IMAGE_URL);
         product3.setDescription(DESCRIPTION);
+        product3.setCategory(categoryRepository.findByCategoryName("Novel"));
         product3.setPrice(PRICE);
 
         product4.setName(NAME);
         product4.setImageUrl(IMAGE_URL);
         product4.setDescription(DESCRIPTION);
+        product4.setCategory(categoryRepository.findByCategoryName("Novel"));
         product4.setPrice(PRICE);
 
         productService.save(product1);
