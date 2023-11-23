@@ -30,7 +30,7 @@
                             <a th:href="@{'product/edit/' + ${product.getId()}}" ><i class="fas fa-wrench"></i></a>
                         </button>
                     </div>
-                    <img class="card-img-top" th:if="${!product.getImage_url().isEmpty()}" th:src="${product.getImage_url()}" alt="Card image cap">
+                    <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${product.getName()}"></h4>
                         <p class="card-text" th:text="${product.getDescription()}"></p>
