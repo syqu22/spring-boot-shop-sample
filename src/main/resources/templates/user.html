@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/header :: header-css">
+<head th:replace="~{fragments/header :: header-css}">
 </head>
 
 <body>
 
-    <div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
     <div class="container">
         <h2 th:text="#{user.title}"></h2>
@@ -19,7 +19,7 @@
         <h3 th:text="#{user.gender} + ': ' + ${user.getGender()}"></h3>
     </div>
 
-    <div th:replace="fragments/footer :: footer"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
 
 </body>
 

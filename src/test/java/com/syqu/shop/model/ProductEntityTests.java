@@ -2,6 +2,8 @@ package com.syqu.shop.model;
 
 import com.syqu.shop.creator.ProductCreator;
 import com.syqu.shop.domain.Product;
+import jakarta.persistence.PersistenceException;
+import jakarta.validation.ConstraintViolationException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -12,8 +14,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.persistence.PersistenceException;
-import javax.validation.ConstraintViolationException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

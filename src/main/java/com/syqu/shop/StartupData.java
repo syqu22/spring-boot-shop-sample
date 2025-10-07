@@ -2,9 +2,9 @@ package com.syqu.shop;
 
 import com.syqu.shop.domain.Category;
 import com.syqu.shop.domain.Product;
+import com.syqu.shop.domain.User;
 import com.syqu.shop.repository.CategoryRepository;
 import com.syqu.shop.service.ProductService;
-import com.syqu.shop.domain.User;
 import com.syqu.shop.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,9 +63,7 @@ public class StartupData implements CommandLineRunner {
     private void category(){
         Category category1 = new Category();
         Category category2 = new Category();
-        category1.setId(1);
         category1.setCategoryName("Adventure");
-        category2.setId(2);
         category2.setCategoryName("Novel");
 
         categoryRepository.save(category1);

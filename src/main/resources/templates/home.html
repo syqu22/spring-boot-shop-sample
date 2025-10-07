@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head th:replace="fragments/header :: header-css">
+<head th:replace="~{fragments/header :: header-css}">
 </head>
 
 <body>
 
-    <div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
     <div class="container">
         <div class="row">
@@ -30,7 +30,8 @@
                             <a th:href="@{'product/edit/' + ${product.getId()}}" ><i class="fas fa-wrench"></i></a>
                         </button>
                     </div>
-                    <img class="card-img-top" th:if="${!product.getImage_url().isEmpty()}" th:src="${product.getImage_url()}" alt="Card image cap">
+                    <img alt="Card image cap" class="card-img-top"
+                         th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${product.getName()}"></h4>
                         <p class="card-text" th:text="${product.getDescription()}"></p>
@@ -47,7 +48,7 @@
         </div>
     </div>
 
-    <div th:replace="fragments/footer :: footer"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
 
 </body>
 
